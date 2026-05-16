@@ -33,23 +33,6 @@
 12. **模型加速与压缩**：LCM、SDXL-Turbo、DeepCache
 13. **跨领域应用**：医学图像、分子设计、音频合成
 
-## 使用方法
-
-### 本地运行
-
-1. 克隆仓库
-```bash
-git clone https://github.com/YOUR_USERNAME/diffusion-exam-system.git
-```
-
-2. 打开 `index.html` 文件即可使用
-
-### 部署到GitHub Pages
-
-1. Fork 本仓库
-2. 进入仓库设置 → Pages
-3. 选择分支和目录，保存
-4. 访问 `https://YOUR_USERNAME.github.io/diffusion-exam-system/`
 
 ## 项目结构
 
@@ -76,7 +59,7 @@ diffusion-exam-system/
 | 考卷C | 100分 | 100题 | 120分钟 |
 | 考卷D | 100分 | 100题 | 120分钟 |
 
-## 内容准确性
+## 内容准确性（大模型生成，可能有幻觉，需校对）
 
 所有题目均基于真实发表的论文，每道题解析注明参考来源：
 - 论文作者、年份、会议/期刊信息准确
