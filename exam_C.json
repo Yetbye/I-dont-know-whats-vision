@@ -1,0 +1,1431 @@
+{
+  "exam_id": "C",
+  "title": "扩散模型与视觉计算前沿 - 考卷C",
+  "total_score": 105,
+  "duration_minutes": 120,
+  "sections": [
+    {
+      "type": "single_choice",
+      "title": "单选题（50题×1分）",
+      "score_per_question": 1,
+      "questions": [
+        {
+          "id": 1,
+          "difficulty": "hard",
+          "direction": "扩散模型语言建模",
+          "question": "Block Diffusion模型解决扩散语言模型固定长度生成限制的核心思路是什么？",
+          "options": [
+            "A. 增加模型参数量",
+            "B. 在离散去噪扩散和自回归模型之间进行插值，支持灵活长度生成",
+            "C. 使用更长的训练序列",
+            "D. 通过后处理拼接生成结果"
+          ],
+          "answer": "B",
+          "explanation": "Block Diffusion引入了一类在离散去噪扩散和自回归模型之间插值的块扩散语言模型，克服了两种方法的关键限制，支持灵活长度生成并通过KV缓存和并行token采样提高推理效率。参考：《Block Diffusion: Interpolating Between Autoregressive and Diffusion Language Models》，Arriola et al., ICLR 2025"
+        },
+        {
+          "id": 2,
+          "difficulty": "hard",
+          "direction": "扩散模型语言建模",
+          "question": "Block Diffusion论文中提出的噪声调度策略是什么？",
+          "options": [
+            "A. 固定的余弦噪声调度",
+            "B. 数据驱动的噪声调度以最小化梯度方差",
+            "C. 线性噪声调度",
+            "D. 基于学习率的噪声调度"
+          ],
+          "answer": "B",
+          "explanation": "Block Diffusion提出了构建有效块扩散模型的配方，包括高效训练算法、梯度方差估计器和数据驱动的噪声调度(data-driven noise schedules)来最小化方差。参考：《Block Diffusion: Interpolating Between Autoregressive and Diffusion Language Models》，Arriola et al., ICLR 2025"
+        },
+        {
+          "id": 3,
+          "difficulty": "hard",
+          "direction": "扩散模型语言建模",
+          "question": "Diffusion In Diffusion框架中'draft-then-refine'策略的具体做法是什么？",
+          "options": [
+            "A. 先用自回归模型生成再用扩散模型精炼",
+            "B. 先用小块扩散快速生成草稿，再用全局双向扩散精炼",
+            "C. 先用GAN生成再用扩散模型修复",
+            "D. 先用VAE编码再用扩散模型解码"
+          ],
+          "answer": "B",
+          "explanation": "Diffusion In Diffusion提出'draft-then-refine'框架，先用小块扩散快速生成草稿，然后通过全局双向扩散精炼，利用snapshot confidence remasking识别最需要修改的token，并用mix-scale训练扩展块扩散模型的全局能力。参考：《Diffusion In Diffusion: Reclaiming Global Coherence in Semi-Autoregressive Diffusion》，Ma et al., 2026"
+        },
+        {
+          "id": 4,
+          "difficulty": "hard",
+          "direction": "扩散模型语言建模",
+          "question": "Diffusion In Diffusion在使用仅26%微调预算的情况下，将生成困惑度从25.7降低到了多少？",
+          "options": [
+            "A. 23.5",
+            "B. 21.9",
+            "C. 20.1",
+            "D. 19.3"
+          ],
+          "answer": "B",
+          "explanation": "Diffusion In Diffusion使用仅26%的基线模型微调预算，将生成困惑度从25.7降低到21.9，显著缩小了与自回归模型之间的性能差距。参考：《Diffusion In Diffusion: Reclaiming Global Coherence in Semi-Autoregressive Diffusion》，Ma et al., 2026"
+        },
+        {
+          "id": 5,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "SoulX-FlashTalk中Self-correcting Bidirectional Distillation策略与常规单向注意力方法的关键区别是什么？",
+          "options": [
+            "A. 使用更大的模型",
+            "B. 在视频块内保留双向注意力，保持时空相关性",
+            "C. 使用更多的训练数据",
+            "D. 仅使用单向注意力但增加层数"
+          ],
+          "answer": "B",
+          "explanation": "SoulX-FlashTalk使用自校正双向蒸馏策略，在视频块内保留双向注意力，这与常规强制使用严格单向注意力机制的方法不同，从而保持关键的时空相关性，显著增强运动连贯性和视觉细节。参考：《SoulX-FlashTalk: Real-Time Infinite Streaming of Audio-Driven Avatars via Self-Correcting Bidirectional Distillation》，Shen et al., 2025"
+        },
+        {
+          "id": 6,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-FlashTalk的Multi-step Retrospective Self-Correction Mechanism解决什么问题？",
+          "options": [
+            "A. 提高生成图像分辨率",
+            "B. 防止无限生成过程中的误差累积和模型崩溃",
+            "C. 加速训练收敛",
+            "D. 减少模型参数量"
+          ],
+          "answer": "B",
+          "explanation": "SoulX-FlashTalk引入多步回顾自校正机制，使模型能够在无限生成过程中自主从累积误差中恢复，防止崩溃。该系统是首个实现亚秒级启动延迟(0.87s)同时达到32FPS实时吞吐量的14B规模系统。参考：《SoulX-FlashTalk》，Shen et al., 2025"
+        },
+        {
+          "id": 7,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-FlashHead中Oracle-Guided Bidirectional Distillation的核心创新是什么？",
+          "options": [
+            "A. 使用更大的训练数据集",
+            "B. 利用真实运动先验提供精确的物理引导",
+            "C. 使用更多的GPU进行训练",
+            "D. 增加模型层数"
+          ],
+          "answer": "B",
+          "explanation": "SoulX-FlashHead提出Oracle-Guided Bidirectional Distillation，利用真实运动先验(ground-truth motion priors)提供精确的物理引导，以缓解长序列自回归生成中固有的误差累积和身份漂移问题。参考：《SoulX-FlashHead: Oracle-guided Generation of Infinite Real-time Streaming Talking Heads》，Yu et al., 2026"
+        },
+        {
+          "id": 8,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "SoulX-FlashHead中VividHead数据集的规模是多少？",
+          "options": [
+            "A. 100小时",
+            "B. 782小时",
+            "C. 500小时",
+            "D. 1200小时"
+          ],
+          "answer": "B",
+          "explanation": "SoulX-FlashHead提出VividHead大规模高质量数据集，包含782小时严格对齐的影像数据来支持鲁棒训练。其Lite变体在单张NVIDIA RTX 4090上达到96FPS的推理速度。参考：《SoulX-FlashHead》，Yu et al., 2026"
+        },
+        {
+          "id": 9,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "EchoTorrent中Adaptive CFG Calibration (ACC-DMD)解决什么问题？",
+          "options": [
+            "A. 提高图像分辨率",
+            "B. 校准音频CFG增强误差，消除冗余CFG计算，实现单次推理",
+            "C. 加速模型训练",
+            "D. 减少模型参数"
+          ],
+          "answer": "B",
+          "explanation": "EchoTorrent提出自适应CFG校准(ACC-DMD)，通过分阶段时空调度校准DMD中的音频CFG增强误差，消除冗余CFG计算并实现每步单次推理。该框架是14B参数的混合注意力架构，实现4-NFE流式无限时长多模态驱动视频生成。参考：《EchoTorrent: Towards Swift, Sustained, and Streaming Multi-Modal Video Generation》，Meng et al., 2026"
+        },
+        {
+          "id": 10,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-LiveAct中Neighbor Forcing策略的核心设计原理是什么？",
+          "options": [
+            "A. 使用相邻帧作为参考进行复制",
+            "B. 在相同噪声条件下传播时间上相邻的帧作为潜在邻居，提供分布对齐的学习信号",
+            "C. 使用K近邻搜索找到相似帧",
+            "D. 对相邻帧取平均"
+          ],
+          "answer": "B",
+          "explanation": "SoulX-LiveAct提出Neighbor Forcing，一种扩散步一致的自回归公式，在相同噪声条件下将时间上相邻的帧作为潜在邻居传播，提供分布对齐且稳定的学习信号，同时保持AR链中的漂移。参考：《SoulX-LiveAct: Towards Hour-Scale Real-Time Human Animation with Neighbor Forcing and ConvKV Memory》，Zhen et al., 2026"
+        },
+        {
+          "id": 11,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-LiveAct中ConvKV Memory机制解决什么问题？",
+          "options": [
+            "A. 提高图像分辨率",
+            "B. 将因果注意力中的键和值压缩为固定长度表示，实现常量内存推理",
+            "C. 加速训练过程",
+            "D. 减少训练数据需求"
+          ],
+          "answer": "B",
+          "explanation": "SoulX-LiveAct引入结构化ConvKV内存机制，将因果注意力中的键和值压缩为固定长度表示，实现常量内存推理和真正的无限视频生成，不依赖短期运动帧记忆。该系统支持在两张NVIDIA H100/H200 GPU上实现20FPS实时流式推理。参考：《SoulX-LiveAct》，Zhen et al., 2026"
+        },
+        {
+          "id": 12,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "TaoAvatar中将非刚性变形'烘焙'到轻量级MLP网络的方法称为什么？",
+          "options": [
+            "A. 知识蒸馏",
+            "B. 蒸馏技术将StyleUnet变形能力转移到轻量MLP",
+            "C. 量化压缩",
+            "D. 剪枝优化"
+          ],
+          "answer": "B",
+          "explanation": "TaoAvatar先预训练StyleUnet网络处理复杂的姿态依赖非刚性变形，然后通过蒸馏技术将其'烘焙'到轻量级MLP网络中，并用envelope blend shapes补偿细节，使模型能在移动设备上实时运行。参考：《TaoAvatar: Real-Time Lifelike Full-Body Talking Avatars for Augmented Reality via 3D Gaussian Splatting》，Chen et al., 2025"
+        },
+        {
+          "id": 13,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "TaoAvatar的基础3D表示方法是什么？",
+          "options": [
+            "A. NeRF",
+            "B. 3D Gaussian Splatting (3DGS)",
+            "C. Mesh",
+            "D. Point Cloud"
+          ],
+          "answer": "B",
+          "explanation": "TaoAvatar基于3DGS创建个性化穿衣人体参数化模板，将高斯绑定到模板上表示外观，实现高保真轻量级全身说话头像。参考：《TaoAvatar》，Chen et al., 2025"
+        },
+        {
+          "id": 14,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "X-Streamer中Thinker-Actor双Transformer架构中，Thinker模块使用什么预训练模型？",
+          "options": [
+            "A. GPT-4",
+            "B. 预训练的大语言-语音模型",
+            "C. BERT",
+            "D. T5"
+          ],
+          "answer": "B",
+          "explanation": "X-Streamer提出Thinker-Actor双Transformer架构，Thinker利用预训练的大语言-语音模型感知和推理流式用户输入，Actor使用分块自回归扩散Transformer将隐藏状态同步转换为多模态流。参考：《X-Streamer: Unified Human World Modeling with Audiovisual Interaction》，Xie et al., 2025"
+        },
+        {
+          "id": 15,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "LatentSync论文发现的音频条件LDM在lip-sync任务中表现不佳的根本原因是什么？",
+          "options": [
+            "A. 模型参数不够大",
+            "B. 'shortcut learning problem'，模型主要学习视觉-视觉捷径而忽略音频-视觉关联",
+            "C. 训练数据不足",
+            "D. 采样步数太少"
+          ],
+          "answer": "B",
+          "explanation": "LatentSync通过深入分析发现，直接应用音频条件LDM到lip-sync任务会导致次优的唇同步精度，根本原因是'shortcut learning problem'，模型主要学习视觉-视觉捷径而忽略关键的音频-视觉关联。参考：《LatentSync: Taming Audio-Conditioned Latent Diffusion Models for Lip Sync with SyncNet Supervision》，Li et al., 2024"
+        },
+        {
+          "id": 16,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "LatentSync中StableSyncNet在HDTF测试集上将准确率从91%提升到了多少？",
+          "options": [
+            "A. 92%",
+            "B. 94%",
+            "C. 96%",
+            "D. 98%"
+          ],
+          "answer": "B",
+          "explanation": "LatentSync引入StableSyncNet，其架构专为稳定收敛设计，在HDTF测试集上将准确率从91%显著提升到94%。此外还提出Temporal Representation Alignment (TREPA)机制增强生成视频的时间一致性。参考：《LatentSync》，Li et al., 2024"
+        },
+        {
+          "id": 17,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "AvatarSync的两阶段生成策略中，第一阶段FKG利用了文本/音频到音素的什么特性？",
+          "options": [
+            "A. 一对一映射",
+            "B. 多对一映射(many-to-one mapping)",
+            "C. 一对多映射",
+            "D. 无映射关系"
+          ],
+          "answer": "B",
+          "explanation": "AvatarSync采用两阶段策略，第一阶段FKG聚焦音素级语义表示，利用文本或音频到音素的多对一映射特性，构建Phoneme-to-Visual Mapping将抽象音素锚定到字符级单元。参考：《AvatarSync: Rethinking Talking-Head Animation through Phoneme-Guided Autoregressive Perspective》，Deng et al., 2025"
+        },
+        {
+          "id": 18,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "AvatarSync第二阶段帧间插值使用了什么技术实现高效双向上下文推理？",
+          "options": [
+            "A. 自注意力机制",
+            "B. 基于选择性状态空间模型的时间戳感知自适应策略",
+            "C. 循环神经网络",
+            "D. 3D卷积"
+          ],
+          "answer": "B",
+          "explanation": "AvatarSync第二阶段帧间插值引入基于选择性状态空间模型的时间戳感知自适应策略，实现高效双向上下文推理，强调时间连贯性和视觉平滑性。参考：《AvatarSync》，Deng et al., 2025"
+        },
+        {
+          "id": 19,
+          "difficulty": "hard",
+          "direction": "3D重建",
+          "question": "MAGICIAN框架中'Imagined Gaussians'表示的核心作用是什么？",
+          "options": [
+            "A. 直接渲染最终图像",
+            "B. 基于预训练占据网络预测场景不确定性，实现高效覆盖增益计算",
+            "C. 替代3DGS进行最终渲染",
+            "D. 用于数据增强"
+          ],
+          "answer": "B",
+          "explanation": "MAGICIAN引入Imagined Gaussians，一种基于3DGS的场景表示，从具有强结构先验的预训练占据网络推导而来，通过快速体积渲染实现任意新视角的高效覆盖增益计算，使长期规划成为可能。参考：《MAGICIAN: Efficient Long-Term Planning with Imagined Gaussians for Active Mapping》，Li et al., 2026"
+        },
+        {
+          "id": 20,
+          "difficulty": "hard",
+          "direction": "3D重建",
+          "question": "MAGICIAN相比现有贪心next-best-view方法的核心优势是什么？",
+          "options": [
+            "A. 渲染速度更快",
+            "B. 通过树搜索算法实现长期规划，最大化累积表面覆盖增益",
+            "C. 使用更少的内存",
+            "D. 训练更简单"
+          ],
+          "answer": "B",
+          "explanation": "MAGICIAN提出长期规划框架，通过Imagined Gaussians实现高效覆盖增益计算，并将其集成到树搜索算法中进行长期视野规划，而非依赖贪心的next-best-view预测。参考：《MAGICIAN》，Li et al., 2026"
+        },
+        {
+          "id": 21,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "ExploreGS(2508.06014)中使用什么策略生成额外的训练视角？",
+          "options": [
+            "A. 随机采样相机位置",
+            "B. 信息增益驱动的虚拟相机放置策略最大化场景覆盖",
+            "C. 使用预定义的相机轨迹",
+            "D. 基于用户交互选择视角"
+          ],
+          "answer": "B",
+          "explanation": "ExploreGS引入信息增益驱动的虚拟相机放置策略来最大化场景覆盖，随后使用视频扩散先验精炼渲染结果，用增强的视角微调3D高斯显著改善重建质量。参考：《ExploreGS: Explorable 3D Scene Reconstruction with Virtual Camera Samplings and Diffusion Priors》，Kim et al., 2025"
+        },
+        {
+          "id": 22,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "ExploreGS(2508.06014)提出的评估基准叫什么？",
+          "options": [
+            "A. NeRF-Bench",
+            "B. Wild-Explore",
+            "C. 3DGS-Eval",
+            "D. SceneExplorer"
+          ],
+          "answer": "B",
+          "explanation": "ExploreGS提出Wild-Explore基准，专门设计用于评估具有挑战性的场景探索任务，实验表明该方法优于现有3DGS方法，实现从任意视角的高质量无伪影渲染。参考：《ExploreGS》，Kim et al., 2025"
+        },
+        {
+          "id": 23,
+          "difficulty": "hard",
+          "direction": "3D重建",
+          "question": "GS-Planner中如何改进3DGS以识别未观测区域？",
+          "options": [
+            "A. 增加高斯点数量",
+            "B. 对3DGS进行改进以识别未观测区域，在线评估重建质量和完整性",
+            "C. 使用深度学习预测未观测区域",
+            "D. 使用激光雷达补充数据"
+          ],
+          "answer": "B",
+          "explanation": "GS-Planner通过改进3DGS来识别未观测区域，在线评估3DGS地图的重建质量和完整性来引导机器人，然后设计基于采样的主动重建策略探索未观测区域。参考：《GS-Planner: A Gaussian-Splatting-based Planning Framework for Active High-Fidelity Reconstruction》，Jin et al., 2024"
+        },
+        {
+          "id": 24,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "GS-Planner选择什么作为主动重建的机器人平台？",
+          "options": [
+            "A. 地面机器人",
+            "B. 四旋翼无人机",
+            "C. 机械臂",
+            "D. 水下机器人"
+          ],
+          "answer": "B",
+          "explanation": "GS-Planner选择四旋翼作为机器人平台，因其高敏捷性，并设计基于3DGS的安全约束来生成可执行的无人机导航轨迹。参考：《GS-Planner》，Jin et al., 2024"
+        },
+        {
+          "id": 25,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "Auto3R在自动化3D重建中如何处理非朗伯和镜面材质的物体？",
+          "options": [
+            "A. 仅处理朗伯材质",
+            "B. 数据驱动的不确定性量化模型可处理非朗伯和镜面材质",
+            "C. 使用特殊的光照条件",
+            "D. 预先知道物体材质信息"
+          ],
+          "answer": "B",
+          "explanation": "Auto3R是一种数据驱动的不确定性量化模型，设计用于自动化3D扫描和重建，包括处理具有非朗伯和镜面材质的物体，能在不知道真实几何和外观的情况下高效准确预测潜在扫描视角的不确定性分布。参考：《Auto3R: Automated 3D Reconstruction and Scanning via Data-driven Uncertainty Quantification》，Shen et al., 2025"
+        },
+        {
+          "id": 26,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "大规模户外3D重建pipeline(2602.20342)中重建质量与高保真离线参考的差距是多少？",
+          "options": [
+            "A. 1-3%",
+            "B. 4-7%",
+            "C. 10-15%",
+            "D. 20%以上"
+          ],
+          "answer": "B",
+          "explanation": "该端到端pipeline将无人机视频流转换为高保真3D重建，重建质量保持在离线高保真参考的4-7%以内，同时提供显著更高的渲染性能和更低的端到端延迟。参考：《Large-scale Photorealistic Outdoor 3D Scene Reconstruction from UAV Imagery Using Gaussian Splatting Techniques》，Maikos et al., 2026"
+        },
+        {
+          "id": 27,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VQRAE在统一表示中如何同时支持理解和生成？",
+          "options": [
+            "A. 使用两个独立的编码器",
+            "B. 产生连续语义特征用于理解，离散token用于生成",
+            "C. 仅使用连续特征",
+            "D. 仅使用离散token"
+          ],
+          "answer": "B",
+          "explanation": "VQRAE是表示自编码器的向量量化版本，首次探索统一表示以产生用于图像理解的连续语义特征和用于视觉生成的离散token。其语义VQ码本在1536维度下可实现100%利用率。参考：《VQRAE: Representation Quantization Autoencoders for Multimodal Understanding, Generation and Reconstruction》，Du et al., 2025"
+        },
+        {
+          "id": 28,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VQRAE论文发现的关于语义编码器量化的反直觉特性是什么？",
+          "options": [
+            "A. 低维码本效果更好",
+            "B. 依赖高维码本，与图像重建中常用的低维码本做法相反",
+            "C. 码本大小不影响性能",
+            "D. 量化会严重损害语义信息"
+          ],
+          "answer": "B",
+          "explanation": "VQRAE识别出语义编码器量化中一个有趣的特性：依赖高维码本，与之前图像重建中常用的低维码本做法相反。语义VQ码本在1536维度下可实现100%的利用率。参考：《VQRAE》，Du et al., 2025"
+        },
+        {
+          "id": 29,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "VGT(Visual Generation Tuning)的核心发现是什么？",
+          "options": [
+            "A. VLM不能用于视觉生成",
+            "B. 预训练VLM的语义表示中蕴含视觉生成潜力，通过高效调优可激发",
+            "C. 需要从头训练生成模型",
+            "D. VLM仅适合理解任务"
+          ],
+          "answer": "B",
+          "explanation": "VGT发现为多模态理解任务优化的VLM表示中蕴含视觉生成的内在潜力，通过高效视觉生成调优可显著降低对齐成本并加速自回归建模的收敛，比VAE基线快20倍。参考：《Visual Generation Tuning》，Guo et al., 2025"
+        },
+        {
+          "id": 30,
+          "difficulty": "easy",
+          "direction": "视觉表示学习",
+          "question": "Tuna框架构建统一连续视觉表示的方法是什么？",
+          "options": [
+            "A. 仅使用VAE编码器",
+            "B. 将VAE编码器与表示编码器级联",
+            "C. 仅使用表示编码器",
+            "D. 使用双编码器分别处理"
+          ],
+          "answer": "B",
+          "explanation": "Tuna通过将VAE编码器与表示编码器级联来构建统一连续视觉表示，该统一表示空间允许端到端处理图像和视频的理解和生成任务，避免了分离编码器引入的表示格式不匹配。参考：《Tuna: Taming Unified Visual Representations for Native Unified Multimodal Models》，Liu et al., 2025"
+        },
+        {
+          "id": 31,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "Tuna框架中关于理解任务和生成任务联合训练的发现是什么？",
+          "options": [
+            "A. 两个任务互相干扰",
+            "B. 两个任务互相受益而非干扰",
+            "C. 仅生成任务受益",
+            "D. 仅理解任务受益"
+          ],
+          "answer": "B",
+          "explanation": "Tuna发现在统一设置下，在理解和生成数据上联合训练使两个任务互相受益而非干扰，更强的预训练表示编码器在所有多模态任务上一致产生更好性能。参考：《Tuna》，Liu et al., 2025"
+        },
+        {
+          "id": 32,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "FAE(Feature Auto-Encoder)使用多少注意力层来适配预训练视觉表示？",
+          "options": [
+            "A. 10层",
+            "B. 仅一层注意力层",
+            "C. 5层",
+            "D. 与原模型相同层数"
+          ],
+          "answer": "B",
+          "explanation": "FAE提出简单有效的框架，使用仅一层注意力层将预训练视觉表示适配为适合生成的低维潜在空间，同时保留足够的重建和理解信息。关键是耦合两个独立的深度解码器。参考：《One Layer Is Enough: Adapting Pretrained Visual Encoders for Image Generation》，Gao et al., 2025"
+        },
+        {
+          "id": 33,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "FAE论文指出的表示编码器和生成模型之间的根本不匹配是什么？",
+          "options": [
+            "A. 分辨率不匹配",
+            "B. 表示编码器偏好高维潜在空间捕获多样假设，生成模型偏好低维潜在空间保留注入噪声",
+            "C. 训练数据不匹配",
+            "D. 优化目标不匹配"
+          ],
+          "answer": "B",
+          "explanation": "FAE论文指出表示编码器受益于高维潜在空间来捕获遮蔽区域的多样假设，而生成模型偏好低维潜在空间来忠实保留注入噪声，这种差异导致先前工作依赖复杂的目标和架构。参考：《One Layer Is Enough》，Gao et al., 2025"
+        },
+        {
+          "id": 34,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VTP框架识别的视觉分词器'预训练扩展问题'是什么？",
+          "options": [
+            "A. 预训练太久会导致过拟合",
+            "B. 更好的像素级重建精度不导致更高质量的生成，大量计算投入转化为生成性能提升的效果差",
+            "C. 预训练数据不够",
+            "D. 预训练模型太大无法部署"
+          ],
+          "answer": "B",
+          "explanation": "VTP识别出'预训练扩展问题'：标准重建训练范式产生的潜在空间偏向低层信息，更好的像素级重建精度不导致更高质量的生成，将大量计算投入视觉分词器预训练转化为生成性能提升的效果差。参考：《Towards Scalable Pre-training of Visual Tokenizers for Generation》，Yao et al., 2025"
+        },
+        {
+          "id": 35,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VTP框架的联合优化包含哪三种损失？",
+          "options": [
+            "A. 重建损失、对抗损失、感知损失",
+            "B. 图像-文本对比损失、自监督损失和重建损失",
+            "C. 分类损失、检测损失、分割损失",
+            "D. MSE损失、L1损失、SSIM损失"
+          ],
+          "answer": "B",
+          "explanation": "VTP提出统一视觉分词器预训练框架，开创性地联合优化图像-文本对比、自监督和重建三种损失，发现感知导向的分词器预训练解锁了生成的新扩展规律。参考：《Towards Scalable Pre-training of Visual Tokenizers for Generation》，Yao et al., 2025"
+        },
+        {
+          "id": 36,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "The Prism Hypothesis的核心发现是什么？",
+          "options": [
+            "A. 所有编码器特征相同",
+            "B. 语义编码器主要捕获低频分量编码抽象含义，像素编码器额外保留高频信息传达细节",
+            "C. 编码器特征与频率无关",
+            "D. 仅像素编码器捕获低频信息"
+          ],
+          "answer": "B",
+          "explanation": "The Prism Hypothesis系统分析了各种语义和像素编码器的频谱特性，发现编码器特征频谱与其功能角色之间存在高度启发的对应关系：语义编码器主要捕获低频分量，像素编码器额外保留高频信息。参考：《The Prism Hypothesis: Harmonizing Semantic and Pixel Representations via Unified Autoencoding》，Fan et al., 2025"
+        },
+        {
+          "id": 37,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "UAE(Unified Autoencoding)受什么启发来统一语义和像素表示？",
+          "options": [
+            "A. 颜色理论",
+            "B. 棱镜假设(Prism Hypothesis)——频率分解视角",
+            "C. 信息论",
+            "D. 博弈论"
+          ],
+          "answer": "B",
+          "explanation": "UAE受棱镜假设启发，将各种自然输入视为沿频率的光谱分量投影，低频带捕获全局语义，高频带编码局部细节，在单一潜在空间中统一语义和像素表示。参考：《The Prism Hypothesis》，Fan et al., 2025"
+        },
+        {
+          "id": 38,
+          "difficulty": "hard",
+          "direction": "视频生成加速",
+          "question": "Transition Matching Distillation (TMD)的核心思想是什么？",
+          "options": [
+            "A. 直接减少扩散步数",
+            "B. 将多步去噪轨迹与少步概率转移过程匹配，每个转移建模为轻量条件流",
+            "C. 使用更小的模型",
+            "D. 降低视频分辨率"
+          ],
+          "answer": "B",
+          "explanation": "TMD将扩散模型的多步去噪轨迹与少步概率转移过程匹配，每个转移建模为轻量条件流。将原始扩散backbone分解为主backbone(提取语义表示)和flow head(执行内部流更新)两个组件。参考：《Transition Matching Distillation for Fast Video Generation》，Nie et al., 2026"
+        },
+        {
+          "id": 39,
+          "difficulty": "medium",
+          "direction": "视频生成加速",
+          "question": "TMD将原始扩散backbone分解为哪两个组件？",
+          "options": [
+            "A. 编码器和解码器",
+            "B. 主backbone(大部分早期层)和flow head(最后几层)",
+            "C. 生成器和判别器",
+            "D. 文本编码器和视觉编码器"
+          ],
+          "answer": "B",
+          "explanation": "TMD将原始扩散backbone分解为：(1)主backbone，包含大部分早期层，在每个外部转移步提取语义表示；(2)flow head，由最后几层组成，利用这些表示执行多个内部流更新。参考：《Transition Matching Distillation for Fast Video Generation》，Nie et al., 2026"
+        },
+        {
+          "id": 40,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "pixel MeanFlow (pMF)的核心指导原则是什么？",
+          "options": [
+            "A. 在潜在空间操作",
+            "B. 分别设计网络输出空间和损失空间，网络目标在低维图像流形上(x-prediction)",
+            "C. 使用多步采样",
+            "D. 使用VAE压缩"
+          ],
+          "answer": "B",
+          "explanation": "pixel MeanFlow的核心指导原则是分别设计网络输出空间和损失空间：网络目标设计在假定的低维图像流形上(x-prediction)，损失通过MeanFlow在速度空间定义。参考：《One-step Latent-free Image Generation with Pixel Mean Flows》，Lu et al., 2026"
+        },
+        {
+          "id": 41,
+          "difficulty": "medium",
+          "direction": "视觉生成",
+          "question": "pixel MeanFlow中x(zt,r,t)场的物理含义是什么？",
+          "options": [
+            "A. 噪声图像",
+            "B. 近似去噪图像，位于低维数据流形上",
+            "C. 特征图",
+            "D. 梯度场"
+          ],
+          "answer": "B",
+          "explanation": "pMF定义x(zt,r,t) = zt - t*u(zt,r,t)，其行为类似去噪图像，假设x近似位于低维数据流形上，因此可以被神经网络更准确地近似。参考：《One-step Latent-free Image Generation with Pixel Mean Flows》，Lu et al., 2026"
+        },
+        {
+          "id": 42,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "BAR(Masked Bit AutoRegressive modeling)如何解决离散分词器性能差距问题？",
+          "options": [
+            "A. 使用更大的模型",
+            "B. 通过扩展码本大小并使用掩码位建模头逐步生成token的组成位",
+            "C. 使用连续表示替代离散token",
+            "D. 增加训练步数"
+          ],
+          "answer": "B",
+          "explanation": "BAR发现离散和连续方法之间的差距主要来自潜在空间中分配的总位数(压缩比)，扩展码本大小可有效弥合差距。BAR通过掩码位自回归建模头预测离散token的组成位，支持任意码本大小。参考：《Autoregressive Image Generation with Masked Bit Modeling》，Yu et al., 2026"
+        },
+        {
+          "id": 43,
+          "difficulty": "easy",
+          "direction": "视觉生成",
+          "question": "BAR在ImageNet-256上达到的gFID是多少？",
+          "options": [
+            "A. 1.42",
+            "B. 0.99",
+            "C. 1.86",
+            "D. 2.15"
+          ],
+          "answer": "B",
+          "explanation": "BAR在ImageNet-256上达到新的SOTA gFID 0.99，超越了连续和离散范式中的领先方法，同时显著降低采样成本且比先前连续方法收敛更快。参考：《Autoregressive Image Generation with Masked Bit Modeling》，Yu et al., 2026"
+        },
+        {
+          "id": 44,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "Flow Map Language Models (FMLM)相比离散扩散语言模型的核心优势是什么？",
+          "options": [
+            "A. 训练更快",
+            "B. 基于连续流在one-hot token嵌入上定义唯一流映射，可直接学习用于高效少步推理",
+            "C. 使用更少参数",
+            "D. 支持更长序列"
+          ],
+          "answer": "B",
+          "explanation": "FMLM表明基于one-hot token嵌入的连续流语言模型在质量和速度上都优于离散扩散，连续公式定义了可被直接学习用于高效少步推理的唯一流映射，这是离散方法不具备的结构。参考：《Flow Map Language Models: One-step Language Modeling via Continuous Denoising》，Lee et al., 2026"
+        },
+        {
+          "id": 45,
+          "difficulty": "medium",
+          "direction": "视觉生成",
+          "question": "SemanticGen在语义空间生成视频的核心动机是什么？",
+          "options": [
+            "A. 语义空间计算更简单",
+            "B. 视频固有的冗余性使得语义空间足以表达视频内容，避免VAE空间的慢收敛和高计算成本",
+            "C. 语义空间维度更低",
+            "D. VAE空间无法用于视频生成"
+          ],
+          "answer": "B",
+          "explanation": "SemanticGen的核心洞察是视频固有的冗余性使得语义表示空间足以表达视频内容，在语义空间生成视频避免了VAE空间的慢收敛和生成长视频时的高计算成本，可扩展到最长一分钟的视频生成。参考：《SemanticGen: Video Generation in Semantic Space》，Bai et al., 2025"
+        },
+        {
+          "id": 46,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "Scaling Text-to-Image Diffusion Transformers with RAE论文在大规模T2I生成中的关键发现是什么？",
+          "options": [
+            "A. RAE在大规模上不如VAE",
+            "B. 扩展简化了框架，RAE在所有模型规模上一致优于VAE，且VAE模型在64 epoch后灾难性过拟合而RAE保持稳定",
+            "C. 两者性能相当",
+            "D. VAE在大规模上更稳定"
+          ],
+          "answer": "B",
+          "explanation": "该论文发现扩展简化了RAE框架：维度相关噪声调度仍然关键，但架构复杂性如宽扩散头和噪声增强解码在大规模上收益可忽略。RAE在0.5B到9.8B参数的所有规模上一致优于VAE。参考：《Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders》，Tong et al., 2026"
+        },
+        {
+          "id": 47,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "VA-pi框架如何解决AR生成器与分词器之间的不对齐问题？",
+          "options": [
+            "A. 重新训练分词器",
+            "B. 将生成器-分词器对齐公式化为变分优化，使用强化学习策略以像素空间重建质量为内在奖励",
+            "C. 使用对抗训练",
+            "D. 增加训练数据"
+          ],
+          "answer": "B",
+          "explanation": "VA-pi将生成器-分词器对齐公式化为变分优化，推导出统一像素重建和自回归建模的证据下界(ELBO)，引入基于强化的对齐策略将AR生成器视为策略，以像素空间重建质量为内在奖励。参考：《VA-pi: Variational Policy Alignment for Pixel-Aware Autoregressive Generation》，Liao et al., 2025"
+        },
+        {
+          "id": 48,
+          "difficulty": "easy",
+          "direction": "视觉表示学习",
+          "question": "VA-pi在LlamaGen-XXL上仅用1% ImageNet-1K数据和25分钟微调，将FID从14.36降低到多少？",
+          "options": [
+            "A. 10.52",
+            "B. 7.65",
+            "C. 9.31",
+            "D. 6.88"
+          ],
+          "answer": "B",
+          "explanation": "VA-pi仅用1% ImageNet-1K数据和25分钟微调，就将LlamaGen-XXL的FID从14.36降低到7.65，IS从86.55提升到116.70，无需重新训练分词器或外部奖励模型。参考：《VA-pi》，Liao et al., 2025"
+        },
+        {
+          "id": 49,
+          "difficulty": "hard",
+          "direction": "图像编辑",
+          "question": "DragLoRA相比DragDiffusion的核心改进是什么？",
+          "options": [
+            "A. 使用更大的模型",
+            "B. 通过在线优化LoRA适配器实现更精确的变形，使用更少优化步骤",
+            "C. 使用更多的控制点",
+            "D. 增加训练数据"
+          ],
+          "answer": "B",
+          "explanation": "DragLoRA通过在线优化LoRA适配器实现基于拖拽的图像编辑，提出双目标优化(DOO)和输入潜在特征适配(ILFA)两种策略，比DragDiffusion实现更精确变形且使用更少优化步骤。参考：《DragLoRA: Online Optimization of LoRA Adapters for Drag-based Image Editing in Diffusion Model》，Xia et al., ICML 2025"
+        },
+        {
+          "id": 50,
+          "difficulty": "medium",
+          "direction": "图像编辑",
+          "question": "Canvas-to-Image框架如何统一多种异构控制信号？",
+          "options": [
+            "A. 分别处理每种控制信号",
+            "B. 将多种控制信号编码到单一组合画布图像中，模型直接解释进行视觉-空间推理",
+            "C. 使用文本描述统一所有控制",
+            "D. 使用多个专用网络"
+          ],
+          "answer": "B",
+          "explanation": "Canvas-to-Image将空间定位主体、姿态信号、边界框和文本标注等异构控制信号编码到单一组合画布图像中，通过Multi-Task Canvas Training策略优化扩散模型联合理解和集成异构控制。参考：《Canvas-to-Image: Compositional Image Generation with Multimodal Controls》，Dalva et al., 2025"
+        }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "title": "多选题（30题×1.5分）",
+      "score_per_question": 1.5,
+      "questions": [
+        {
+          "id": 51,
+          "difficulty": "medium",
+          "direction": "扩散模型语言建模",
+          "question": "Block Diffusion相比纯扩散语言模型和纯自回归模型的优势包括以下哪些？",
+          "options": [
+            "A. 支持灵活长度生成",
+            "B. 通过KV缓存提高推理效率",
+            "C. 支持并行token采样",
+            "D. 训练不需要任何数据"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "Block Diffusion克服了扩散模型固定长度限制和自回归模型推理效率问题，支持灵活长度生成、KV缓存和并行token采样。参考：《Block Diffusion》，Arriola et al., ICLR 2025"
+        },
+        {
+          "id": 52,
+          "difficulty": "hard",
+          "direction": "扩散模型语言建模",
+          "question": "Diffusion In Diffusion框架包含以下哪些关键技术组件？",
+          "options": [
+            "A. 小块扩散快速生成草稿",
+            "B. 全局双向扩散精炼",
+            "C. Snapshot confidence remasking",
+            "D. Mix-scale训练"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "Diffusion In Diffusion包含小块扩散草稿生成、全局双向扩散精炼、snapshot confidence remasking识别关键token和mix-scale训练扩展全局能力四个关键技术组件。参考：《Diffusion In Diffusion》，Ma et al., 2026"
+        },
+        {
+          "id": 53,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-FlashTalk的工程加速套件包含以下哪些技术？",
+          "options": [
+            "A. 混合序列并行",
+            "B. Parallel VAE",
+            "C. 内核级优化",
+            "D. 模型剪枝"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "SoulX-FlashTalk工程化全栈推理加速套件，包含混合序列并行、Parallel VAE和内核级优化，不包含模型剪枝。参考：《SoulX-FlashTalk》，Shen et al., 2025"
+        },
+        {
+          "id": 54,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "EchoTorrent的四重设计包括以下哪些？",
+          "options": [
+            "A. Multi-Teacher Training",
+            "B. Adaptive CFG Calibration (ACC-DMD)",
+            "C. Hybrid Long Tail Forcing",
+            "D. VAE Decoder Refiner"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "EchoTorrent的四重设计包括Multi-Teacher Training、ACC-DMD、Hybrid Long Tail Forcing和VAE Decoder Refiner，实现14B参数4-NFE流式无限时长多模态视频生成。参考：《EchoTorrent》，Meng et al., 2026"
+        },
+        {
+          "id": 55,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "以下关于MAGICIAN的描述，哪些是正确的？",
+          "options": [
+            "A. 基于Imagined Gaussians的场景表示",
+            "B. 使用树搜索算法进行长期规划",
+            "C. 依赖贪心的next-best-view预测",
+            "D. 在室内和室外基准上达到SOTA性能"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "MAGICIAN使用Imagined Gaussians和树搜索进行长期规划，在室内和室外基准上达到SOTA，但不依赖贪心next-best-view。参考：《MAGICIAN》，Li et al., 2026"
+        },
+        {
+          "id": 56,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VQRAE的两阶段训练策略包括以下哪些步骤？",
+          "options": [
+            "A. 冻结编码器，学习高维语义VQ码本",
+            "B. 使用像素重建目标",
+            "C. 联合优化编码器与自蒸馏约束",
+            "D. 使用对抗训练"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "VQRAE两阶段训练：第一阶段冻结编码器学习高维语义VQ码本(像素重建目标)，第二阶段联合优化编码器与自蒸馏约束。不使用对抗训练。参考：《VQRAE》，Du et al., 2025"
+        },
+        {
+          "id": 57,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "FAE框架可以实例化以下哪些自监督编码器？",
+          "options": [
+            "A. DINO",
+            "B. SigLIP",
+            "C. ResNet",
+            "D. 可插入扩散模型和归一化流两类生成族"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "FAE可实例化DINO、SigLIP等自监督编码器，并可插入扩散模型和归一化流两类不同的生成族。ResNet不是自监督编码器。参考：《One Layer Is Enough》，Gao et al., 2025"
+        },
+        {
+          "id": 58,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "pixel MeanFlow (pMF)相比传统扩散/流模型的特点包括以下哪些？",
+          "options": [
+            "A. 无需潜在空间",
+            "B. 可实现单步生成",
+            "C. 网络输出空间和损失空间分离设计",
+            "D. 需要多步采样"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "pMF无需潜在空间、可实现单步生成、网络输出空间和损失空间分离设计，不需要多步采样。参考：《One-step Latent-free Image Generation with Pixel Mean Flows》，Lu et al., 2026"
+        },
+        {
+          "id": 59,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "Flow Map Language Models (FMLM)相比离散扩散语言模型的优势包括以下哪些？",
+          "options": [
+            "A. 一步生成超过8步离散扩散质量",
+            "B. 可学习唯一流映射用于高效推理",
+            "C. 使用简单交叉熵目标",
+            "D. 需要更多训练数据"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "FMLM一步生成超过8步离散扩散质量、可学习唯一流映射、使用简单交叉熵目标，不需要更多训练数据。参考：《Flow Map Language Models》，Lee et al., 2026"
+        },
+        {
+          "id": 60,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "以下关于LatentSync的描述，哪些是正确的？",
+          "options": [
+            "A. 发现了shortcut learning problem",
+            "B. 提出StableSyncNet提升SyncNet收敛稳定性",
+            "C. 提出TREPA机制增强时间一致性",
+            "D. 仅适用于特定语言"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "LatentSync发现shortcut learning problem、提出StableSyncNet和TREPA机制，不限于特定语言。参考：《LatentSync》，Li et al., 2024"
+        },
+        {
+          "id": 61,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "AvatarSync的两阶段策略分别关注什么？",
+          "options": [
+            "A. 第一阶段FKG聚焦音素级语义表示",
+            "B. 第二阶段帧间插值强调时间连贯性和视觉平滑性",
+            "C. 两个阶段都关注像素级细节",
+            "D. 解耦语义建模与视觉动态"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "AvatarSync第一阶段FKG聚焦音素级语义表示，第二阶段帧间插值强调时间连贯性和视觉平滑性，整体是解耦语义建模与视觉动态的'Divide and Conquer'设计。参考：《AvatarSync》，Deng et al., 2025"
+        },
+        {
+          "id": 62,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VTP框架的实验发现包括以下哪些？",
+          "options": [
+            "A. 不修改DiT训练规格和FLOPs，仅扩展VTP预训练一致获得增益",
+            "B. 传统自编码器在1/10 FLOPs时就停滞不前",
+            "C. VTP达到0.36 rFID同时78.2%零样本准确率和85.7%线性探测准确率",
+            "D. VTP需要更多训练步数才能收敛"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "VTP实验发现仅扩展预训练一致获得增益、传统自编码器早期停滞、VTP达到优异性能且收敛更快。参考：《Towards Scalable Pre-training of Visual Tokenizers for Generation》，Yao et al., 2025"
+        },
+        {
+          "id": 63,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "Scaling RAE for T2I论文的发现包括以下哪些？",
+          "options": [
+            "A. 维度相关噪声调度在大规模上仍然关键",
+            "B. 宽扩散头和噪声增强解码在大规模上收益可忽略",
+            "C. VAE模型在64 epoch后灾难性过拟合",
+            "D. RAE模型通过256 epoch保持稳定"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "该论文发现维度相关噪声调度仍关键、架构复杂性在大规模上收益可忽略、VAE过拟合而RAE稳定，四个发现全部正确。参考：《Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders》，Tong et al., 2026"
+        },
+        {
+          "id": 64,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "以下关于X-Streamer的描述，哪些是正确的？",
+          "options": [
+            "A. Thinker-Actor双Transformer架构",
+            "B. 从单张肖像构建无限流式数字人",
+            "C. 实现实时开放-ended视频通话",
+            "D. 仅支持文本输入"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "X-Streamer使用Thinker-Actor架构、从单张肖像构建数字人、支持实时多模态交互，不仅支持文本还支持语音和视频输入。参考：《X-Streamer》，Xie et al., 2025"
+        },
+        {
+          "id": 65,
+          "difficulty": "hard",
+          "direction": "视频生成加速",
+          "question": "TMD框架的蒸馏过程包括以下哪些步骤？",
+          "options": [
+            "A. 向预训练模型引入flow head",
+            "B. 将模型适配为条件流映射",
+            "C. 使用flow head rollout进行分布匹配蒸馏",
+            "D. 使用GAN进行蒸馏"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "TMD蒸馏过程包括引入flow head、适配为条件流映射、使用flow head rollout进行分布匹配蒸馏，不使用GAN。参考：《Transition Matching Distillation for Fast Video Generation》，Nie et al., 2026"
+        },
+        {
+          "id": 66,
+          "difficulty": "hard",
+          "direction": "图像编辑",
+          "question": "DragLoRA提出的两种优化策略是什么？",
+          "options": [
+            "A. 双目标优化(DOO)",
+            "B. 输入潜在特征适配(ILFA)",
+            "C. 对抗优化",
+            "D. 梯度裁剪优化"
+          ],
+          "answer": [
+            "A",
+            "B"
+          ],
+          "explanation": "DragLoRA提出双目标优化(DOO)和输入潜在特征适配(ILFA)两种策略，不使用对抗优化或梯度裁剪优化。参考：《DragLoRA》，Xia et al., ICML 2025"
+        },
+        {
+          "id": 67,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "The Prism Hypothesis / UAE框架中频率带调制器的输入包括以下哪些？",
+          "options": [
+            "A. 来自语义编码器的特征",
+            "B. 图像输入",
+            "C. 文本输入",
+            "D. 音频输入"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "UAE的频率带调制器接收来自语义编码器的特征、图像输入和文本输入，不包含音频输入。参考：《The Prism Hypothesis》，Fan et al., 2025"
+        },
+        {
+          "id": 68,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "ExploreGS(2508.06014)的pipeline包含以下哪些步骤？",
+          "options": [
+            "A. 信息增益驱动的虚拟相机放置",
+            "B. 视频扩散先验精炼渲染结果",
+            "C. 用增强视角微调3D高斯",
+            "D. 使用NeRF进行最终渲染"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "ExploreGS包含虚拟相机放置、扩散先验精炼和3D高斯微调，使用3DGS而非NeRF进行最终渲染。参考：《ExploreGS》，Kim et al., 2025"
+        },
+        {
+          "id": 69,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "Bind-Your-Avatar解决多说话人视频生成的两个关键挑战是什么？",
+          "options": [
+            "A. 音频到角色对应控制",
+            "B. 缺乏多角色说话视频数据集",
+            "C. 模型参数量过大",
+            "D. 训练数据不足"
+          ],
+          "answer": [
+            "A",
+            "B"
+          ],
+          "explanation": "Bind-Your-Avatar解决音频到角色对应控制和缺乏多角色说话视频在同一场景的数据集两个关键挑战。参考：《Bind-Your-Avatar》，Huang et al., 2025"
+        },
+        {
+          "id": 70,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "BAR论文关于离散和连续方法性能差距的发现包括以下哪些？",
+          "options": [
+            "A. 差距主要来自潜在空间中分配的总位数(压缩比)",
+            "B. 扩展码本大小可有效弥合差距",
+            "C. 离散分词器本质上劣于连续方法",
+            "D. 现有离散生成方法在扩展码本时面临性能退化或过高训练成本"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "BAR发现差距来自压缩比、扩展码本可弥合差距、现有方法在扩展码本时遇到困难，但并不认为离散分词器本质上劣于连续方法。参考：《Autoregressive Image Generation with Masked Bit Modeling》，Yu et al., 2026"
+        },
+        {
+          "id": 71,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VA-pi框架的ELBO包含以下哪些组成部分？",
+          "options": [
+            "A. 像素重建项",
+            "B. 自回归建模项",
+            "C. 正则化项作为自然正则器维持token分布一致性",
+            "D. 对抗损失项"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "VA-pi的ELBO统一像素重建和自回归建模，正则化项作为自然正则器，不包含对抗损失。参考：《VA-pi》，Liao et al., 2025"
+        },
+        {
+          "id": 72,
+          "difficulty": "medium",
+          "direction": "图像编辑",
+          "question": "Canvas-to-Image支持的多种控制信号包括以下哪些？",
+          "options": [
+            "A. 空间定位的主体",
+            "B. 姿态信号",
+            "C. 边界框",
+            "D. 文本标注"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "Canvas-to-Image支持空间定位主体、姿态信号、边界框和文本标注等多种控制信号，统一编码到画布图像中。参考：《Canvas-to-Image》，Dalva et al., 2025"
+        },
+        {
+          "id": 73,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-LiveAct识别的AR扩散方法的两个关键挑战是什么？",
+          "options": [
+            "A. 大多数forcing策略传播不匹配扩散状态的样本级表示",
+            "B. 历史表示无界增长且缺乏结构",
+            "C. 训练数据不足",
+            "D. 模型参数过大"
+          ],
+          "answer": [
+            "A",
+            "B"
+          ],
+          "explanation": "SoulX-LiveAct识别出大多数forcing策略传播不匹配扩散状态的表示导致不稳定收敛，以及历史表示无界增长限制推理效率两个关键挑战。参考：《SoulX-LiveAct》，Zhen et al., 2026"
+        },
+        {
+          "id": 74,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "SemanticGen在语义空间生成视频的优势包括以下哪些？",
+          "options": [
+            "A. 避免VAE空间的慢收敛",
+            "B. 降低生成长视频的计算成本",
+            "C. 可扩展到最长一分钟的视频",
+            "D. 生成质量低于VAE空间方法"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "SemanticGen避免慢收敛、降低计算成本、可扩展到一分钟视频，且生成质量高。参考：《SemanticGen》，Bai et al., 2025"
+        },
+        {
+          "id": 75,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "以下关于TaoAvatar的描述，哪些是正确的？",
+          "options": [
+            "A. 基于3DGS",
+            "B. 创建个性化穿衣人体参数化模板",
+            "C. 可在Apple Vision Pro等移动/AR设备上运行",
+            "D. 仅支持半身生成"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "TaoAvatar基于3DGS、创建全身参数化模板、可在多种移动和AR设备上运行，支持全身而非仅半身。参考：《TaoAvatar》，Chen et al., 2025"
+        },
+        {
+          "id": 76,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "Tuna框架相比解耦表示的UMM的优势包括以下哪些？",
+          "options": [
+            "A. 避免分离编码器引入的表示格式不匹配",
+            "B. 在理解和生成上都优于解耦替代方案",
+            "C. 更强的预训练表示编码器一致产生更好性能",
+            "D. 理解和生成任务互相干扰"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "Tuna避免格式不匹配、在理解和生成上均优于解耦方案、更强编码器一致更好，且理解和生成互相受益而非干扰。参考：《Tuna》，Liu et al., 2025"
+        },
+        {
+          "id": 77,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "ActiveGAMER系统的核心组件包括以下哪些？",
+          "options": [
+            "A. 基于渲染的信息增益模块",
+            "B. 粗到细探索策略",
+            "C. 后精炼策略",
+            "D. 全局-局部关键帧选择策略"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "ActiveGAMER集成基于渲染的信息增益模块、粗到细探索、后精炼和全局-局部关键帧选择策略，最大化重建完整性和保真度。参考：《ActiveGAMER》，Chen et al., 2025"
+        },
+        {
+          "id": 78,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "VGT相比传统VAE-based自回归生成架构的优势包括以下哪些？",
+          "options": [
+            "A. 训练速度快20倍",
+            "B. 预对齐VLM语义编码器与像素解码器潜在空间",
+            "C. 不需要任何预训练",
+            "D. 激发VLM的内在生成能力"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "VGT训练快20倍、预对齐VLM编码器与解码器潜在空间、激发VLM内在生成能力，但需要预训练VLM。参考：《Visual Generation Tuning》，Guo et al., 2025"
+        },
+        {
+          "id": 79,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "GeneFace++解决NeRF-based方法的三个挑战是什么？",
+          "options": [
+            "A. 唇同步的时间一致性和音频-唇精度",
+            "B. 对域外输入的脆弱性",
+            "C. 训练和推理速度慢",
+            "D. 仅能处理中文语音"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "GeneFace++解决唇同步精度、域外输入脆弱性和推理速度慢三个挑战，不限于中文语音。参考：《GeneFace++: Generalized and Stable Real-Time Audio-Driven 3D Talking Face Generation》，Ye et al., 2023"
+        },
+        {
+          "id": 80,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "GeneFace++使用什么辅助特征和损失来改善面部运动预测？",
+          "options": [
+            "A. 音高轮廓(pitch contour)作为辅助特征",
+            "B. 时间损失(temporal loss)",
+            "C. landmark局部线性嵌入方法调节异常值",
+            "D. 对抗损失"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "GeneFace++使用音高轮廓辅助特征、时间损失和landmark局部线性嵌入方法，不使用对抗损失来改善面部运动预测。参考：《GeneFace++》，Ye et al., 2023"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "title": "判断题（20题×0.5分）",
+      "score_per_question": 0.5,
+      "questions": [
+        {
+          "id": 81,
+          "difficulty": "hard",
+          "direction": "扩散模型语言建模",
+          "question": "Block Diffusion仅支持固定长度的文本生成，与标准扩散语言模型相同。",
+          "answer": false,
+          "explanation": "Block Diffusion支持灵活长度生成，这是其相比标准扩散语言模型的核心优势之一。参考：《Block Diffusion》，Arriola et al., ICLR 2025"
+        },
+        {
+          "id": 82,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "SoulX-FlashTalk是首个实现亚秒级启动延迟的14B规模实时流式音频驱动头像系统。",
+          "answer": true,
+          "explanation": "SoulX-FlashTalk实现0.87s亚秒级启动延迟和32FPS实时吞吐量，是首个达到此性能的14B规模系统。参考：《SoulX-FlashTalk》，Shen et al., 2025"
+        },
+        {
+          "id": 83,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "EchoTorrent的Hybrid Long Tail Forcing在所有帧上强制对齐。",
+          "answer": false,
+          "explanation": "Hybrid Long Tail Forcing仅在尾部帧上强制对齐，而非所有帧，通过因果-双向混合架构有效缓解流式模式下的时空退化。参考：《EchoTorrent》，Meng et al., 2026"
+        },
+        {
+          "id": 84,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VQRAE使用低维码本进行语义编码器量化。",
+          "answer": false,
+          "explanation": "VQRAE发现语义编码器量化依赖高维码本(如1536维)，与图像重建中常用的低维码本做法相反。参考：《VQRAE》，Du et al., 2025"
+        },
+        {
+          "id": 85,
+          "difficulty": "easy",
+          "direction": "视觉表示学习",
+          "question": "FAE仅需一层注意力层即可将预训练视觉表示适配为适合生成的低维潜在空间。",
+          "answer": true,
+          "explanation": "FAE使用仅一层注意力层将预训练视觉表示适配为低维潜在空间，同时保留重建和理解信息。参考：《One Layer Is Enough》，Gao et al., 2025"
+        },
+        {
+          "id": 86,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "BAR(Masked Bit AutoRegressive modeling)的实验表明离散分词器本质上劣于连续方法。",
+          "answer": false,
+          "explanation": "BAR发现离散和连续方法之间的差距主要来自压缩比而非分词器类型，扩展码本大小可使离散方法匹配或超越连续方法。参考：《Autoregressive Image Generation with Masked Bit Modeling》，Yu et al., 2026"
+        },
+        {
+          "id": 87,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "VTP框架发现传统自编码器的生成性能随预训练计算量持续提升。",
+          "answer": false,
+          "explanation": "VTP发现传统自编码器在1/10 FLOPs时就停滞不前，而VTP的感知导向预训练解锁了新的扩展规律。参考：《Towards Scalable Pre-training of Visual Tokenizers for Generation》，Yao et al., 2025"
+        },
+        {
+          "id": 88,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "MAGICIAN使用贪心的next-best-view策略进行主动重建规划。",
+          "answer": false,
+          "explanation": "MAGICIAN使用树搜索算法进行长期规划，而非贪心的next-best-view预测，这是其相比现有方法的核心优势。参考：《MAGICIAN》，Li et al., 2026"
+        },
+        {
+          "id": 89,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "pixel MeanFlow (pMF)需要潜在空间(如VAE)来生成图像。",
+          "answer": false,
+          "explanation": "pMF直接在像素空间操作，无需潜在空间，实现单步潜在自由图像生成。参考：《One-step Latent-free Image Generation with Pixel Mean Flows》，Lu et al., 2026"
+        },
+        {
+          "id": 90,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "LatentSync发现音频条件LDM在lip-sync任务中的shortcut learning问题导致模型忽略音频-视觉关联。",
+          "answer": true,
+          "explanation": "LatentSync通过深入分析确认shortcut learning problem是lip-sync精度不佳的根本原因。参考：《LatentSync》，Li et al., 2024"
+        },
+        {
+          "id": 91,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "Scaling RAE论文发现VAE-based模型在大规模T2I微调中比RAE模型更稳定。",
+          "answer": false,
+          "explanation": "该论文发现VAE模型在64 epoch后灾难性过拟合，而RAE模型通过256 epoch保持稳定。参考：《Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders》，Tong et al., 2026"
+        },
+        {
+          "id": 92,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "AvatarSync采用两阶段'Divide and Conquer'策略解耦语义建模与视觉动态。",
+          "answer": true,
+          "explanation": "AvatarSync的两阶段策略是刻意的'Divide and Conquer'设计，解耦语义建模(FKG)与视觉动态(帧间插值)。参考：《AvatarSync》，Deng et al., 2025"
+        },
+        {
+          "id": 93,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "FMLM(Flow Map Language Models)使用离散噪声过程进行语言建模。",
+          "answer": false,
+          "explanation": "FMLM使用连续流而非离散噪声过程，挑战了离散噪声过程对离散模态生成建模是必要的这一广泛假设。参考：《Flow Map Language Models》，Lee et al., 2026"
+        },
+        {
+          "id": 94,
+          "difficulty": "easy",
+          "direction": "视觉表示学习",
+          "question": "The Prism Hypothesis发现语义编码器主要捕获低频分量，像素编码器额外保留高频信息。",
+          "answer": true,
+          "explanation": "Prism Hypothesis系统分析了编码器频谱特性，确认语义编码器捕获低频语义，像素编码器保留高频细节。参考：《The Prism Hypothesis》，Fan et al., 2025"
+        },
+        {
+          "id": 95,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-LiveAct的ConvKV Memory依赖短期运动帧记忆来实现无限视频生成。",
+          "answer": false,
+          "explanation": "ConvKV Memory将因果注意力中的键和值压缩为固定长度表示，实现常量内存推理，不依赖短期运动帧记忆。参考：《SoulX-LiveAct》，Zhen et al., 2026"
+        },
+        {
+          "id": 96,
+          "difficulty": "easy",
+          "direction": "图像编辑",
+          "question": "DragLoRA通过在线优化LoRA适配器实现比DragDiffusion更精确的拖拽编辑。",
+          "answer": true,
+          "explanation": "DragLoRA通过在线LoRA优化实现更精确变形，使用更少优化步骤且消耗更少时间。参考：《DragLoRA》，Xia et al., ICML 2025"
+        },
+        {
+          "id": 97,
+          "difficulty": "hard",
+          "direction": "视觉生成",
+          "question": "SemanticGen在VAE潜在空间中生成视频以实现高效长视频生成。",
+          "answer": false,
+          "explanation": "SemanticGen在语义空间(而非VAE空间)中生成视频，避免VAE空间的慢收敛和高计算成本。参考：《SemanticGen》，Bai et al., 2025"
+        },
+        {
+          "id": 98,
+          "difficulty": "easy",
+          "direction": "视觉表示学习",
+          "question": "VA-pi需要重新训练分词器才能对齐AR生成器。",
+          "answer": false,
+          "explanation": "VA-pi是轻量级后训练框架，无需重新训练分词器或外部奖励模型，直接优化AR模型。参考：《VA-pi》，Liao et al., 2025"
+        },
+        {
+          "id": 99,
+          "difficulty": "easy",
+          "direction": "扩散模型语言建模",
+          "question": "Diffusion In Diffusion的mix-scale训练旨在扩展块扩散模型的局部能力。",
+          "answer": false,
+          "explanation": "mix-scale训练旨在扩展块扩散模型的全局能力(global capabilities)，而非局部能力。参考：《Diffusion In Diffusion》，Ma et al., 2026"
+        },
+        {
+          "id": 100,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "Auto3R可以在不知道真实几何和外观的情况下预测潜在扫描视角的不确定性分布。",
+          "answer": true,
+          "explanation": "Auto3R在迭代3D重建和扫描过程中，无需知道真实几何和外观即可高效准确预测不确定性分布。参考：《Auto3R》，Shen et al., 2025"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1431 @@
+{
+  "exam_id": "D",
+  "title": "扩散模型与视觉计算前沿 - 考卷D",
+  "total_score": 105,
+  "duration_minutes": 120,
+  "sections": [
+    {
+      "type": "single_choice",
+      "title": "单选题（50题×1分）",
+      "score_per_question": 1,
+      "questions": [
+        {
+          "id": 1,
+          "difficulty": "hard",
+          "direction": "漫画生成",
+          "question": "DiffSensei框架桥接多模态LLM和扩散模型的核心方法是什么？",
+          "options": [
+            "A. 直接使用LLM生成漫画图像",
+            "B. 利用多模态LLM进行布局规划和角色一致性控制，扩散模型进行面板图像生成",
+            "C. 仅使用扩散模型生成漫画",
+            "D. 使用GAN生成漫画"
+          ],
+          "answer": "B",
+          "explanation": "DiffSensei桥接多模态LLM和扩散模型，利用多模态LLM进行布局规划和角色一致性控制，扩散模型进行高质量面板图像生成，实现定制化漫画生成。参考：《DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation》，Wu et al., 2024"
+        },
+        {
+          "id": 2,
+          "difficulty": "hard",
+          "direction": "漫画生成",
+          "question": "DiffSensei如何保证漫画中角色外观的一致性？",
+          "options": [
+            "A. 为每个角色训练独立模型",
+            "B. 通过多模态LLM进行角色一致性控制和参考图像引导",
+            "C. 使用后处理统一角色外观",
+            "D. 使用固定的角色模板"
+          ],
+          "answer": "B",
+          "explanation": "DiffSensei通过多模态LLM进行角色一致性控制，结合参考角色图像和布局条件来保证漫画中角色外观的一致性。参考：《DiffSensei》，Wu et al., 2024"
+        },
+        {
+          "id": 3,
+          "difficulty": "hard",
+          "direction": "音乐生成",
+          "question": "BemaGANv2中Anti-aliased Multi-Periodicity composition (AMP)模块内部使用什么激活函数？",
+          "options": [
+            "A. ReLU",
+            "B. Snake激活函数",
+            "C. LeakyReLU",
+            "D. GELU"
+          ],
+          "answer": "B",
+          "explanation": "BemaGANv2在生成器中用AMP模块替代传统ResBlocks，AMP内部使用Snake激活函数来更好地建模周期结构，用于高保真长期音频生成。参考：《BemaGANv2: A Tutorial and Comparative Survey of GAN-based Vocoders for Long-Term Audio Generation》，Park et al., 2025"
+        },
+        {
+          "id": 4,
+          "difficulty": "hard",
+          "direction": "音乐生成",
+          "question": "BemaGANv2中Multi-Envelope Discriminator (MED)的核心功能是什么？",
+          "options": [
+            "A. 提取高频特征",
+            "B. 提取丰富的时域包络特征用于周期性检测",
+            "C. 提取频域特征",
+            "D. 提取空间特征"
+          ],
+          "answer": "B",
+          "explanation": "BemaGANv2在判别器框架中集成MED，提取丰富的时域包络特征，对周期性检测至关重要，与MRD结合实现更准确的长期依赖建模。参考：《BemaGANv2》，Park et al., 2025"
+        },
+        {
+          "id": 5,
+          "difficulty": "hard",
+          "direction": "音乐信息检索",
+          "question": "Noise-to-Notes (N2N)框架如何重新定义自动鼓转录(ADT)任务？",
+          "options": [
+            "A. 作为分类任务",
+            "B. 作为条件生成任务，利用扩散建模将音频条件高斯噪声转换为鼓事件",
+            "C. 作为回归任务",
+            "D. 作为聚类任务"
+          ],
+          "answer": "B",
+          "explanation": "N2N将ADT重新定义为条件生成任务，引入扩散建模框架将音频条件的高斯噪声转换为具有关联速度的鼓事件，提供灵活的速度-精度权衡和强大的修复能力。参考：《Noise-to-Notes: Diffusion-Based Generation and Refinement for Automatic Drum Transcription》，Yeung et al."
+        },
+        {
+          "id": 6,
+          "difficulty": "hard",
+          "direction": "音乐信息检索",
+          "question": "N2N中引入Annealed Pseudo-Huber损失解决什么问题？",
+          "options": [
+            "A. 训练不稳定",
+            "B. 二值onset和连续速度值的联合优化困难",
+            "C. 数据不足",
+            "D. 模型过大"
+          ],
+          "answer": "B",
+          "explanation": "N2N中生成二值onset和连续速度值对扩散模型构成挑战，引入Annealed Pseudo-Huber损失来促进有效的联合优化。参考：《Noise-to-Notes》，Yeung et al."
+        },
+        {
+          "id": 7,
+          "difficulty": "medium",
+          "direction": "音乐信息检索",
+          "question": "N2N中引入音乐基础模型(MFM)特征的目的是什么？",
+          "options": [
+            "A. 替代原始音频输入",
+            "B. 增强低层频谱图特征，捕获高层语义信息增强对域外鼓音频的鲁棒性",
+            "C. 仅用于可视化",
+            "D. 减少训练时间"
+          ],
+          "answer": "B",
+          "explanation": "N2N提出融入音乐基础模型(MFM)提取的特征来增强低层频谱图特征，这些特征捕获高层语义信息，增强对域外鼓音频的鲁棒性。参考：《Noise-to-Notes》，Yeung et al."
+        },
+        {
+          "id": 8,
+          "difficulty": "hard",
+          "direction": "隐私保护",
+          "question": "AdaDPSyn中Precision-Focused Iterative Radius Reduction技术的核心作用是什么？",
+          "options": [
+            "A. 增加噪声以提高隐私",
+            "B. 基于数据聚类模式动态细化聚合半径，最小化添加噪声量",
+            "C. 减少训练数据量",
+            "D. 加速模型训练"
+          ],
+          "answer": "B",
+          "explanation": "AdaDPSyn的关键创新是Precision-Focused Iterative Radius Reduction技术，基于数据聚类中观察到的模式动态细化聚合半径(噪声添加的数据分组范围)，最小化添加噪声量。参考：《Data-Adaptive Differentially Private Prompt Synthesis for In-Context Learning》，Gao et al., ICLR 2025"
+        },
+        {
+          "id": 9,
+          "difficulty": "medium",
+          "direction": "隐私保护",
+          "question": "AdaDPSyn的目标是什么？",
+          "options": [
+            "A. 完全消除隐私风险",
+            "B. 在保持高ICL精度的同时维持形式化差分隐私保证",
+            "C. 仅提高模型性能",
+            "D. 仅减少训练时间"
+          ],
+          "answer": "B",
+          "explanation": "AdaDPSyn的目标是根据数据的固有统计特性自适应调整数据合成机制中的噪声水平，在保持高ICL精度的同时维持形式化差分隐私保证。参考：《Data-Adaptive Differentially Private Prompt Synthesis for In-Context Learning》，Gao et al., ICLR 2025"
+        },
+        {
+          "id": 10,
+          "difficulty": "hard",
+          "direction": "多分类器系统",
+          "question": "Brown关于多分类器系统的信息论分析的核心发现是什么？",
+          "options": [
+            "A. 多样性可以用单一度量完全捕获",
+            "B. 多样性实际上存在于多个相关性阶次，成对多样性只能捕获低阶分量",
+            "C. 多样性仅存在于二阶相关性",
+            "D. 多样性与分类精度无关"
+          ],
+          "answer": "B",
+          "explanation": "Brown发现多样性实际上存在于多个相关性阶次，成对多样性只能捕获低阶分量，这对理解集成系统中多样性的本质有重要意义。参考：《An Information Theoretic Perspective on Multiple Classifier Systems》，Brown"
+        },
+        {
+          "id": 11,
+          "difficulty": "hard",
+          "direction": "多分类器系统",
+          "question": "Brown论文中集成互信息的自然展开包含哪两个分量？",
+          "options": [
+            "A. 偏差和方差",
+            "B. '精度'和'多样性'分量",
+            "C. 精确率和召回率",
+            "D. 灵敏度和特异度"
+          ],
+          "answer": "B",
+          "explanation": "Brown展示了集成互信息的自然展开为'精度'和'多样性'分量，这种自然推导的多样性项是先前人为定义多样性术语的替代方案。参考：《An Information Theoretic Perspective on Multiple Classifier Systems》，Brown"
+        },
+        {
+          "id": 12,
+          "difficulty": "hard",
+          "direction": "AI辅助笔记",
+          "question": "AI辅助笔记研究发现的'AI辅助困境'指的是什么？",
+          "options": [
+            "A. AI工具无法帮助学习",
+            "B. 更高的AI辅助程度反而降低认知参与度，中等辅助程度产生最佳学习效果",
+            "C. AI工具总是提高学习效果",
+            "D. AI工具仅适合特定学科"
+          ],
+          "answer": "B",
+          "explanation": "研究发现中等AI辅助产生最高学习成果，而全自动AI尽管最易用但得分最低，揭示了偏好便利性和认知收益之间的差距。参考：《More AI Assistance Reduces Cognitive Engagement》，Chen et al."
+        },
+        {
+          "id": 13,
+          "difficulty": "medium",
+          "direction": "AI辅助笔记",
+          "question": "AI辅助笔记实验中测试的三种AI辅助变体是什么？",
+          "options": [
+            "A. 全自动AI、半自动AI、无AI",
+            "B. Automated AI(高辅助)、Intermediate AI(中等辅助带摘要)、Minimal AI(低辅助仅转录)",
+            "C. 语音AI、文本AI、图像AI",
+            "D. 在线AI、离线AI、混合AI"
+          ],
+          "answer": "B",
+          "explanation": "实验测试了三种AI辅助变体：Automated AI(高辅助结构化笔记)、Intermediate AI(中等辅助实时摘要)和Minimal AI(低辅助仅转录)。参考：《More AI Assistance Reduces Cognitive Engagement》，Chen et al."
+        },
+        {
+          "id": 14,
+          "difficulty": "hard",
+          "direction": "AI辅助笔记",
+          "question": "NoteBar系统利用什么信息自动将笔记组织到多个类别？",
+          "options": [
+            "A. 仅使用笔记内容",
+            "B. 人格(persona)信息和高效语言模型",
+            "C. 仅使用时间信息",
+            "D. 仅使用标签信息"
+          ],
+          "answer": "B",
+          "explanation": "NoteBar利用人格信息和高效语言模型自动将笔记组织到多个类别以更好地支持用户工作流，并提出包含3173条笔记和8494个标注概念的人格条件数据集。参考：《NoteBar: An AI-Assisted Note-Taking System for Personal Knowledge Management》，Wisoff et al."
+        },
+        {
+          "id": 15,
+          "difficulty": "hard",
+          "direction": "AI辅助笔记",
+          "question": "AI margin notes研究关于AI参与程度与阅读理解关系的发现是什么？",
+          "options": [
+            "A. AI参与度越高阅读理解越好",
+            "B. AI参与程度对阅读理解没有可测量的影响",
+            "C. AI参与度越高阅读理解越差",
+            "D. 仅在特定条件下有影响"
+          ],
+          "answer": "B",
+          "explanation": "令人惊讶的是，AI参与程度对阅读理解没有可测量的影响，而较少AI参与的技术产生更多心理所有权，但更快更省力的设计通常更受偏好。参考：《Designing and Evaluating AI Margin Notes in Document Reader Software》，Joshi & Vogel"
+        },
+        {
+          "id": 16,
+          "difficulty": "medium",
+          "direction": "AI辅助笔记",
+          "question": "AI margin notes的三个设计参数是什么？",
+          "options": [
+            "A. 颜色、大小、位置",
+            "B. 与文本集成vs分离、选择自动化vs手动、AI生成程度",
+            "C. 字体、语言、格式",
+            "D. 输入方式、输出方式、存储方式"
+          ],
+          "answer": "B",
+          "explanation": "AI margin notes的三个设计参数是：与文本集成(与聊天界面不同)、选择自动化(通过AI或手动)、AI生成程度(不同程度的AI参与)。参考：《Designing and Evaluating AI Margin Notes》，Joshi & Vogel"
+        },
+        {
+          "id": 17,
+          "difficulty": "hard",
+          "direction": "图像描述",
+          "question": "MirrorDiff在图像描述生成中引入的核心机制是什么？",
+          "options": [
+            "A. 使用更大的语言模型",
+            "B. 通过镜像扩散进行再生，利用扩散模型生成多个描述候选并通过再生选择最优",
+            "C. 使用对抗训练",
+            "D. 增加训练数据"
+          ],
+          "answer": "B",
+          "explanation": "MirrorDiff提出镜像扩散方法用于图像描述，通过扩散模型生成多个描述候选并利用再生机制选择和优化最优描述。参考：《MirrorDiff: Learning Mirror Diffusion for Image Captioning via Regeneration》，Wang et al., ICMR 2025"
+        },
+        {
+          "id": 18,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "IFA模型引入Retinex理论用于显著性检测的目的是什么？",
+          "options": [
+            "A. 增强图像对比度",
+            "B. 基于Retinex理论引入光照图，补充语义信息并避免深度不平衡问题",
+            "C. 进行图像去噪",
+            "D. 进行颜色校正"
+          ],
+          "answer": "B",
+          "explanation": "IFA受低光增强启发，基于Retinex理论引入光照图到SOD中，易获取的光照不仅补充语义信息，还避免了深度不平衡问题。参考：《IFA: Illumination-aware Feature Aggregation Model for Salient Object Detection》，Li et al., 2025"
+        },
+        {
+          "id": 19,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "IFA中双尺度渐进融合模块的作用是什么？",
+          "options": [
+            "A. 增加图像分辨率",
+            "B. 通过跨尺度信息融合聚合光照信息",
+            "C. 进行特征降维",
+            "D. 进行特征选择"
+          ],
+          "answer": "B",
+          "explanation": "IFA设计双尺度渐进融合模块，通过提出的跨尺度信息融合来聚合光照信息，嵌入光照感知模型中进行显著性检测。参考：《IFA》，Li et al., 2025"
+        },
+        {
+          "id": 20,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "SEMPART在DINO语义图上联合推断什么？",
+          "options": [
+            "A. 仅粗粒度分割",
+            "B. 粗粒度和细粒度双分割",
+            "C. 仅细粒度分割",
+            "D. 三级分割"
+          ],
+          "answer": "B",
+          "explanation": "SEMPART在DINO语义图上联合推断粗粒度和细粒度双分割，通过图驱动正则化保留细边界细节，并将粗掩码语义蒸馏到细掩码中。参考：《SEMPART: Self-supervised Multi-resolution Partitioning of Image Semantics》，Ravindran & Basu"
+        },
+        {
+          "id": 21,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "SEMPART基于什么自监督视觉特征进行对象分区？",
+          "options": [
+            "A. CLIP特征",
+            "B. DINO patch-wise特征",
+            "C. ResNet特征",
+            "D. VGG特征"
+          ],
+          "answer": "B",
+          "explanation": "SEMPART基于DINO的大规模预训练backbone捕获的有意义的patch-wise图像语义特征进行对象分区。参考：《SEMPART》，Ravindran & Basu"
+        },
+        {
+          "id": 22,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "TwinsTNet中Cross-Modal Federated Attention (CMFA)如何挖掘跨模态互补信息？",
+          "options": [
+            "A. 通过卷积操作",
+            "B. 通过元素级全局依赖挖掘跨模态互补线索",
+            "C. 通过池化操作",
+            "D. 通过上采样操作"
+          ],
+          "answer": "B",
+          "explanation": "TwinsTNet设计Cross-Modal Federated Attention (CMFA)，通过元素级全局依赖(element-wise global dependency)挖掘跨模态互补线索，实现高效双模态信息融合。参考：《TwinsTNet: Broad-View Twins Transformer Network for Bi-Modal Salient Object Detection》，Lyu et al., 2025"
+        },
+        {
+          "id": 23,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "TwinsTNet中Semantic Consistency Attention Loss的作用是什么？",
+          "options": [
+            "A. 增加训练稳定性",
+            "B. 使用真实标注生成的注意力图监督CMFA中的共注意力特征",
+            "C. 减少模型参数",
+            "D. 加速推理"
+          ],
+          "answer": "B",
+          "explanation": "TwinsTNet提出Semantic Consistency Attention Loss，使用真实标注生成的注意力图监督CMFA中的共注意力特征，确保准确的模态融合。参考：《TwinsTNet》，Lyu et al., 2025"
+        },
+        {
+          "id": 24,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "TwinsTNet中Cross-Scale Retracing Attention (CSRA)解决什么问题？",
+          "options": [
+            "A. 跨模态对齐问题",
+            "B. 现有BSOD模型缺乏层间交互探索",
+            "C. 训练数据不足",
+            "D. 推理速度慢"
+          ],
+          "answer": "B",
+          "explanation": "CSRA从所有之前层的堆叠特征中检索查询相关信息，实现灵活的跨层交互，缓解模态和层维度上的归纳偏置。参考：《TwinsTNet》，Lyu et al., 2025"
+        },
+        {
+          "id": 25,
+          "difficulty": "hard",
+          "direction": "AI Agent",
+          "question": "EvoScientist框架中三个专门化Agent分别是什么？",
+          "options": [
+            "A. 数据Agent、模型Agent、评估Agent",
+            "B. Researcher Agent(RA)、Engineer Agent(EA)、Reviewer Agent",
+            "C. 规划Agent、执行Agent、监控Agent",
+            "D. 输入Agent、处理Agent、输出Agent"
+          ],
+          "answer": "B",
+          "explanation": "EvoScientist包含三个专门化Agent：Researcher Agent(RA)负责科学想法生成，Engineer Agent(EA)负责实验执行，以及Reviewer Agent进行同行评审。参考：《EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery》，Lyu et al., 2026"
+        },
+        {
+          "id": 26,
+          "difficulty": "hard",
+          "direction": "AI Agent",
+          "question": "EvoScientist解决现有AI科学家系统的什么关键局限？",
+          "options": [
+            "A. 计算资源不足",
+            "B. 依赖静态手工设计的pipeline，无法基于累积交互历史适应策略",
+            "C. 缺乏多模态能力",
+            "D. 无法处理大规模数据"
+          ],
+          "answer": "B",
+          "explanation": "EvoScientist解决现有AI科学家系统依赖静态手工设计pipeline的局限，通过持久记忆和自我进化持续改进研究策略，避免重复失败实验和追求不可行想法。参考：《EvoScientist》，Lyu et al., 2026"
+        },
+        {
+          "id": 27,
+          "difficulty": "hard",
+          "direction": "GUI Agent",
+          "question": "TongUI构建的GUI-Net-1M数据集的规模和覆盖范围是什么？",
+          "options": [
+            "A. 100K轨迹，10个应用",
+            "B. 1M轨迹数据，跨越5个操作系统和280多个应用",
+            "C. 500K轨迹，50个应用",
+            "D. 2M轨迹，1000个应用"
+          ],
+          "answer": "B",
+          "explanation": "TongUI从网络多模态教程中爬取和处理GUI轨迹数据，产生GUI-Net-1M数据集，包含1M轨迹数据跨越5个操作系统和280多个应用。参考：《TongUI》，Zhang et al., 2025"
+        },
+        {
+          "id": 28,
+          "difficulty": "medium",
+          "direction": "GUI Agent",
+          "question": "TongUI基于什么基础模型进行微调？",
+          "options": [
+            "A. GPT-4V",
+            "B. Qwen2.5-VL-3B/7B",
+            "C. LLaVA",
+            "D. CLIP"
+          ],
+          "answer": "B",
+          "explanation": "TongUI通过在GUI-Net-1M上微调Qwen2.5-VL-3B/7B模型开发TongUI Agent，在跨平台GUI任务上展现强大的泛化能力。参考：《TongUI》，Zhang et al., 2025"
+        },
+        {
+          "id": 29,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "AniPortrait方法论的两个阶段分别是什么？",
+          "options": [
+            "A. 音频处理和视频渲染",
+            "B. 从音频提取3D中间表示并投影为2D面部关键点序列，然后用扩散模型+运动模块转换为动画",
+            "C. 文本处理和图像生成",
+            "D. 3D建模和纹理映射"
+          ],
+          "answer": "B",
+          "explanation": "AniPortrait分两阶段：先从音频提取3D中间表示并投影为2D面部关键点序列，然后使用鲁棒的扩散模型配合运动模块将关键点序列转换为照片级真实的时间一致肖像动画。参考：《AniPortrait: Audio-Driven Synthesis of Photorealistic Portrait Animation》，Wei et al., 2024"
+        },
+        {
+          "id": 30,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "AniPortrait相比GAN、NeRF和运动解码器等现有方法的优势是什么？",
+          "options": [
+            "A. 训练速度更快",
+            "B. 更好的泛化能力和稳定性",
+            "C. 参数更少",
+            "D. 仅需单张图片"
+          ],
+          "answer": "B",
+          "explanation": "AniPortrait在面部自然度、姿态多样性和视觉质量上优于现有方法，这些网络表现出有限的泛化能力和稳定性不足。参考：《AniPortrait》，Wei et al., 2024"
+        },
+        {
+          "id": 31,
+          "difficulty": "hard",
+          "direction": "视频生成加速",
+          "question": "TurboDiffusion的加速组件包括以下哪些？",
+          "options": [
+            "A. 低比特SageAttention和可训练稀疏线性注意力(SLA)",
+            "B. rCM步蒸馏",
+            "C. W8A8量化",
+            "D. 以上全部"
+          ],
+          "answer": "D",
+          "explanation": "TurboDiffusion的加速组件包括注意力加速(低比特SageAttention和SLA)、步蒸馏(rCM)和W8A8量化，在单张RTX 5090上实现100-200倍加速。参考：《TurboDiffusion》，Zhang et al., 2025"
+        },
+        {
+          "id": 32,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "Adaptive Projected Guidance (APG)将CFG更新项分解为什么组件？",
+          "options": [
+            "A. 高频和低频组件",
+            "B. 平行和正交组件(相对于条件模型预测)",
+            "C. 空间和时间组件",
+            "D. 语义和风格组件"
+          ],
+          "answer": "B",
+          "explanation": "APG将CFG更新项分解为相对于条件模型预测的平行和正交组件，发现平行组件主要导致过饱和，正交组件增强图像质量，据此提出降低平行组件权重。参考：《Eliminating Oversaturation and Artifacts of High Guidance Scales in Diffusion Models》，Sadat et al., ICLR 2025"
+        },
+        {
+          "id": 33,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "APG论文建立的CFG与什么优化方法之间的联系？",
+          "options": [
+            "A. 随机梯度下降",
+            "B. 梯度上升",
+            "C. 牛顿法",
+            "D. Adam优化器"
+          ],
+          "answer": "B",
+          "explanation": "APG论文建立了CFG与梯度上升之间的联系，基于此洞察引入新的重缩放和动量方法用于CFG更新规则。参考：《Eliminating Oversaturation and Artifacts》，Sadat et al., ICLR 2025"
+        },
+        {
+          "id": 34,
+          "difficulty": "hard",
+          "direction": "时间序列预测",
+          "question": "CN-Diff(Conditional Diffusion with Nonlinear Data Transformation)在前向过程中引入什么创新？",
+          "options": [
+            "A. 更多的噪声步数",
+            "B. 新颖的非线性变换和可学习条件",
+            "C. 更大的模型",
+            "D. 更多的训练数据"
+          ],
+          "answer": "B",
+          "explanation": "CN-Diff在前向过程中引入新颖的非线性变换和可学习条件，提出新的损失公式，改善扩散模型捕获复杂时间序列模式的能力。参考：《Conditional Diffusion Model with Nonlinear Data Transformation for Time Series Forecasting》，Rishi et al., 2025"
+        },
+        {
+          "id": 35,
+          "difficulty": "medium",
+          "direction": "时间序列预测",
+          "question": "CN-Diff在多少个真实世界数据集上进行了评估？",
+          "options": [
+            "A. 5个",
+            "B. 9个",
+            "C. 15个",
+            "D. 20个"
+          ],
+          "answer": "B",
+          "explanation": "CN-Diff在9个真实世界数据集上进行了评估，表现优于其他领先的时间序列模型。参考：《Conditional Diffusion Model with Nonlinear Data Transformation for Time Series Forecasting》，Rishi et al., 2025"
+        },
+        {
+          "id": 36,
+          "difficulty": "hard",
+          "direction": "视觉自回归模型",
+          "question": "Spectrum Weakening Guidance (SWG)框架的理论基础是什么？",
+          "options": [
+            "A. 扩散模型理论",
+            "B. 可逆频谱变换保持信息，仅保留频谱子集引入可控信息减少",
+            "C. 信息论",
+            "D. 博弈论"
+          ],
+          "answer": "B",
+          "explanation": "SWG理论上证明可逆频谱变换保持信息，而仅保留频谱子集引入可控信息减少，基于此在内部表示的通道维度上执行频谱选择，避免扩散模型的结构约束。参考：《Guiding Visual Autoregressive Models through Spectrum Weakening》，Wang et al., 2025"
+        },
+        {
+          "id": 37,
+          "difficulty": "hard",
+          "direction": "视觉自回归模型",
+          "question": "SWG是否需要重新训练或修改模型架构？",
+          "options": [
+            "A. 需要完全重新训练",
+            "B. 不需要重新训练、特定条件或任何架构修改",
+            "C. 需要微调",
+            "D. 需要修改网络层"
+          ],
+          "answer": "B",
+          "explanation": "SWG无需重新训练、特定条件或任何架构修改即可工作，通过在频谱域构建可控弱模型实现引导。参考：《Guiding Visual Autoregressive Models through Spectrum Weakening》，Wang et al., 2025"
+        },
+        {
+          "id": 38,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "HyPSAM中动态融合网络(DFNet)使用什么技术促进自适应跨模态交互？",
+          "options": [
+            "A. 标准卷积",
+            "B. 动态卷积和多分支解码",
+            "C. 自注意力",
+            "D. 池化"
+          ],
+          "answer": "B",
+          "explanation": "HyPSAM的DFNet使用动态卷积和多分支解码促进自适应跨模态交互，克服固定参数核的局限性并增强多模态特征表示。参考：《HyPSAM》，Hou et al., 2026"
+        },
+        {
+          "id": 39,
+          "difficulty": "easy",
+          "direction": "显著性检测",
+          "question": "HyPSAM中P2RNet(Plug-and-play Refinement Network)使用哪些类型的提示？",
+          "options": [
+            "A. 仅文本提示",
+            "B. 文本提示、掩码提示和框提示",
+            "C. 仅掩码提示",
+            "D. 仅框提示"
+          ],
+          "answer": "B",
+          "explanation": "P2RNet使用混合提示：文本提示确保可靠的模态输入，掩码和框提示实现精确的显著性目标定位。参考：《HyPSAM》，Hou et al., 2026"
+        },
+        {
+          "id": 40,
+          "difficulty": "hard",
+          "direction": "多模态复合编辑",
+          "question": "多模态复合编辑和检索综述涵盖的核心任务包括哪些？",
+          "options": [
+            "A. 仅图像-文本编辑",
+            "B. 图像-文本复合编辑、图像-文本复合检索和其他多模态复合检索",
+            "C. 仅图像-文本检索",
+            "D. 仅视频编辑"
+          ],
+          "answer": "B",
+          "explanation": "该综述系统组织了图像-文本复合编辑、图像-文本复合检索和其他多模态复合检索的应用场景、方法和基准。参考：《A survey of multimodal composite editing and retrieval》，Li et al., 2025"
+        },
+        {
+          "id": 41,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "Bind-Your-Avatar中Embedding Router的细粒度功能是什么？",
+          "options": [
+            "A. 仅编码外观信息",
+            "B. 将'谁'和'说什么'绑定在一起",
+            "C. 仅编码音频信息",
+            "D. 仅编码空间位置"
+          ],
+          "answer": "B",
+          "explanation": "Bind-Your-Avatar提出细粒度Embedding Router，将'谁'和'说什么'绑定在一起来解决音频到角色对应控制问题。参考：《Bind-Your-Avatar》，Huang et al., 2025"
+        },
+        {
+          "id": 42,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "Bind-Your-Avatar基于什么架构构建？",
+          "options": [
+            "A. U-Net",
+            "B. MM-DiT",
+            "C. GAN",
+            "D. Transformer"
+          ],
+          "answer": "B",
+          "explanation": "Bind-Your-Avatar是基于MM-DiT的模型，专门设计用于同一场景中多说话角色视频生成。参考：《Bind-Your-Avatar》，Huang et al., 2025"
+        },
+        {
+          "id": 43,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "SAGD(Spectrally Anisotropic Gaussian Diffusion)中各向异性噪声算子的作用是什么？",
+          "options": [
+            "A. 增加噪声多样性",
+            "B. 用结构化频率对角协方差替代各向同性前向协方差，塑造归纳偏置",
+            "C. 减少训练时间",
+            "D. 增加模型参数"
+          ],
+          "answer": "B",
+          "explanation": "SAGD引入各向异性噪声算子，用结构化频率对角协方差替代各向同性前向协方差，统一带通掩码和幂律加权，允许强调或抑制指定频段。参考：《Learning What Matters: Steering Diffusion via Spectrally Anisotropic Forward Noise》，Scimeca et al., 2025"
+        },
+        {
+          "id": 44,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "SAGD中的选择性遗漏(selective omission)功能指什么？",
+          "options": [
+            "A. 随机丢弃训练样本",
+            "B. 学习时忽略已知局限于特定频段的损坏",
+            "C. 减少模型层数",
+            "D. 跳过训练步骤"
+          ],
+          "answer": "B",
+          "explanation": "SAGD实现选择性遗漏：学习时忽略已知局限于特定频段的损坏，同时保持前向过程为高斯分布。参考：《Learning What Matters》，Scimeca et al., 2025"
+        },
+        {
+          "id": 45,
+          "difficulty": "hard",
+          "direction": "全景图像生成",
+          "question": "PAR模型统一了哪些全景图像生成任务？",
+          "options": [
+            "A. 仅文本到全景图",
+            "B. 文本到全景图、全景图外画和全景图像编辑",
+            "C. 仅全景图外画",
+            "D. 仅全景图像编辑"
+          ],
+          "answer": "B",
+          "explanation": "PAR统一框架通过掩码自回归建模，将文本到全景图、全景图外画和全景图像编辑三个任务整合到统一架构中。参考：《Conditional Panoramic Image Generation via Masked Autoregressive Modeling》，Wang et al., 2025"
+        },
+        {
+          "id": 46,
+          "difficulty": "medium",
+          "direction": "全景图像生成",
+          "question": "PAR模型指出扩散模型不适合ERP全景图的根本原因是什么？",
+          "options": [
+            "A. 全景图分辨率太高",
+            "B. 球面映射违反了i.i.d.高斯噪声假设",
+            "C. 扩散模型无法处理宽幅图像",
+            "D. 训练数据不足"
+          ],
+          "answer": "B",
+          "explanation": "PAR发现扩散模型本质上不适合等距柱状投影(ERP)全景图，因为球面映射违反了独立同分布(i.i.d.)高斯噪声假设。参考：《Conditional Panoramic Image Generation via Masked Autoregressive Modeling》，Wang et al., 2025"
+        },
+        {
+          "id": 47,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "GeneFace++中使用什么方法调节预测运动中的异常值？",
+          "options": [
+            "A. 卡尔曼滤波",
+            "B. Landmark局部线性嵌入方法",
+            "C. 中值滤波",
+            "D. 高斯滤波"
+          ],
+          "answer": "B",
+          "explanation": "GeneFace++提出landmark局部线性嵌入方法来调节预测运动中的异常值，确保面部运动序列的高时间一致性和音频-唇精度。参考：《GeneFace++》，Ye et al., 2023"
+        },
+        {
+          "id": 48,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "ExploreGS(2505.10578)使用什么模型替代传统激光雷达点云获取？",
+          "options": [
+            "A. 深度学习模型",
+            "B. 视觉模型配合BoW模型",
+            "C. 结构光",
+            "D. ToF相机"
+          ],
+          "answer": "B",
+          "explanation": "ExploreGS使用RGB图像，通过视觉模型替代传统激光雷达点云获取过程，利用BoW模型实现实时处理能力，使3DGS训练可在机载执行。参考：《ExploreGS: a vision-based low overhead framework for 3D scene reconstruction》，Feng et al., 2025"
+        },
+        {
+          "id": 49,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "DvD(Dominating vs. Dominated)现象中导致生成性坍缩的原因是什么？",
+          "options": [
+            "A. 训练数据不足",
+            "B. 一个概念token主导生成过程，抑制其他概念的表示",
+            "C. 模型参数不够",
+            "D. 采样步数太少"
+          ],
+          "answer": "B",
+          "explanation": "DvD不平衡指文本到图像扩散模型在多概念提示时，一个概念token主导生成过程、抑制其他概念，导致生成性坍缩。参考：《Dominating vs. Dominated: Generative Collapse in Diffusion Models》，Jeong & Lee, 2025"
+        },
+        {
+          "id": 50,
+          "difficulty": "easy",
+          "direction": "视觉表示学习",
+          "question": "Diffusion As Self-Distillation (DSD)框架中导致'latent collapse'的原因是什么？",
+          "options": [
+            "A. 学习率过高",
+            "B. 扩散训练目标干扰网络学习良好潜在表示的能力",
+            "C. 模型太大",
+            "D. 数据太少"
+          ],
+          "answer": "B",
+          "explanation": "DSD发现朴素的联合训练方法因'latent collapse'灾难性失败，根本原因是扩散训练目标干扰网络学习良好潜在表示的能力。通过将扩散与自蒸馏类比获得了关键洞察。参考：《Diffusion As Self-Distillation》，Wang & Zhang, 2025"
+        }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "title": "多选题（30题×1.5分）",
+      "score_per_question": 1.5,
+      "questions": [
+        {
+          "id": 51,
+          "difficulty": "hard",
+          "direction": "漫画生成",
+          "question": "DiffSensei的输入条件包括以下哪些？",
+          "options": [
+            "A. 布局条件",
+            "B. 漫画角色图像",
+            "C. 面板标题",
+            "D. 故事摘要"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "DiffSensei接收布局条件、漫画角色参考图像、面板标题和故事摘要作为输入，通过多模态LLM和扩散模型协作生成定制化漫画。参考：《DiffSensei》，Wu et al., 2024"
+        },
+        {
+          "id": 52,
+          "difficulty": "medium",
+          "direction": "音乐生成",
+          "question": "BemaGANv2评估中使用的客观指标包括以下哪些？",
+          "options": [
+            "A. FAD (Fréchet Audio Distance)",
+            "B. SSIM",
+            "C. PLCC",
+            "D. MCD (Mel Cepstral Distortion)"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "BemaGANv2使用FAD、SSIM、PLCC、MCD等客观指标以及MOS、SMOS等主观评估来系统评估不同判别器配置。参考：《BemaGANv2》，Park et al., 2025"
+        },
+        {
+          "id": 53,
+          "difficulty": "hard",
+          "direction": "音乐信息检索",
+          "question": "N2N框架相比传统判别式ADT方法的优势包括以下哪些？",
+          "options": [
+            "A. 灵活的速度-精度权衡",
+            "B. 强大的修复(inpainting)能力",
+            "C. 不需要任何训练",
+            "D. 融合MFM特征增强鲁棒性"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "N2N提供灵活速度-精度权衡、强大修复能力和MFM特征增强鲁棒性，但需要训练扩散模型。参考：《Noise-to-Notes》，Yeung et al."
+        },
+        {
+          "id": 54,
+          "difficulty": "hard",
+          "direction": "隐私保护",
+          "question": "AdaDPSyn相比DP few-shot generation的优势包括以下哪些？",
+          "options": [
+            "A. 自适应调整噪声水平",
+            "B. 保持高ICL精度接近非私有基线",
+            "C. 完全消除隐私风险",
+            "D. 动态细化聚合半径最小化噪声"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "AdaDPSyn自适应调整噪声、保持高精度接近非私有基线、动态细化聚合半径，但差分隐私是降低而非消除隐私风险。参考：《Data-Adaptive Differentially Private Prompt Synthesis》，Gao et al., ICLR 2025"
+        },
+        {
+          "id": 55,
+          "difficulty": "easy",
+          "direction": "AI辅助笔记",
+          "question": "AI margin notes研究的关键发现包括以下哪些？",
+          "options": [
+            "A. 参与者偏好集成的AI margin notes",
+            "B. 参与者偏好手动选择",
+            "C. AI参与程度对阅读理解有显著影响",
+            "D. 较少AI参与产生更多心理所有权"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "研究发现参与者偏好集成margin notes和手动选择、较少AI参与产生更多心理所有权，但AI参与程度对阅读理解没有可测量的影响。参考：《Designing and Evaluating AI Margin Notes》，Joshi & Vogel"
+        },
+        {
+          "id": 56,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "TwinsTNet的三个核心注意力机制包括以下哪些？",
+          "options": [
+            "A. Cross-Modal Federated Attention (CMFA)",
+            "B. Semantic Consistency Attention Loss",
+            "C. Cross-Scale Retracing Attention (CSRA)",
+            "D. Self-Attention"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "TwinsTNet的三个核心组件是CMFA、Semantic Consistency Attention Loss和CSRA，分别解决跨模态融合、融合准确性和层间交互问题。参考：《TwinsTNet》，Lyu et al., 2025"
+        },
+        {
+          "id": 57,
+          "difficulty": "hard",
+          "direction": "AI Agent",
+          "question": "EvoScientist框架的持续改进机制包括以下哪些？",
+          "options": [
+            "A. 持久记忆",
+            "B. 自我进化",
+            "C. 静态pipeline",
+            "D. 避免重复失败实验"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "EvoScientist通过持久记忆和自我进化持续改进，避免重复失败实验，与静态pipeline相反。参考：《EvoScientist》，Lyu et al., 2026"
+        },
+        {
+          "id": 58,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "以下关于AniPortrait的描述，哪些是正确的？",
+          "options": [
+            "A. 使用扩散模型生成肖像动画",
+            "B. 配合运动模块",
+            "C. 从音频提取3D中间表示",
+            "D. 使用GAN作为生成器"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "AniPortrait使用扩散模型+运动模块、从音频提取3D中间表示，不使用GAN作为生成器。参考：《AniPortrait》，Wei et al., 2024"
+        },
+        {
+          "id": 59,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "SAGD的各向异性噪声算子可以统一以下哪些操作？",
+          "options": [
+            "A. 带通掩码",
+            "B. 幂律加权",
+            "C. 随机噪声",
+            "D. 保持前向过程为高斯分布"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "SAGD统一带通掩码和幂律加权，同时保持前向过程为高斯分布，不包含随机噪声操作。参考：《Learning What Matters》，Scimeca et al., 2025"
+        },
+        {
+          "id": 60,
+          "difficulty": "hard",
+          "direction": "视频生成加速",
+          "question": "TurboDiffusion在以下哪些Wan模型上进行了实验验证？",
+          "options": [
+            "A. Wan2.2-I2V-A14B-720P",
+            "B. Wan2.1-T2V-1.3B-480P",
+            "C. Wan2.1-T2V-14B-720P",
+            "D. Wan2.1-T2V-14B-480P"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "TurboDiffusion在四个Wan模型上都进行了实验验证，均实现100-200倍加速。参考：《TurboDiffusion》，Zhang et al., 2025"
+        },
+        {
+          "id": 61,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "HyPSAM的P2RNet作为通用优化策略的优势包括以下哪些？",
+          "options": [
+            "A. 即插即用",
+            "B. 可与不同RGB-T SOD方法无缝集成",
+            "C. 需要重新训练基础模型",
+            "D. 使用混合提示引导SAM精炼"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "P2RNet是即插即用的，可与不同方法集成，使用混合提示引导SAM精炼，不需要重新训练基础模型。参考：《HyPSAM》，Hou et al., 2026"
+        },
+        {
+          "id": 62,
+          "difficulty": "easy",
+          "direction": "显著性检测",
+          "question": "IFA在以下哪些数据集上表现优异？",
+          "options": [
+            "A. 水下数据集",
+            "B. 低光数据集",
+            "C. 仅标准SOD数据集",
+            "D. 五个数据集"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "IFA在五个数据集上验证，特别在水下和低光数据集上仍取得突出结果，不限于标准SOD数据集。参考：《IFA》，Li et al., 2025"
+        },
+        {
+          "id": 63,
+          "difficulty": "medium",
+          "direction": "视觉自回归模型",
+          "question": "SWG引入的两种频谱重归一化策略的作用是什么？",
+          "options": [
+            "A. 确保减弱过程中的数值稳定性",
+            "B. 提高生成分辨率",
+            "C. 减少训练时间",
+            "D. 增加模型参数"
+          ],
+          "answer": [
+            "A"
+          ],
+          "explanation": "SWG引入两种频谱重归一化策略确保减弱过程中的数值稳定性，不涉及分辨率、训练时间或参数量。参考：《Guiding Visual Autoregressive Models through Spectrum Weakening》，Wang et al., 2025"
+        },
+        {
+          "id": 64,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "DSD框架对标准LDM三部分架构的改进包括以下哪些？",
+          "options": [
+            "A. 将编码器、解码器和扩散网络合并为单一端到端模型",
+            "B. 识别latent collapse的根本原因",
+            "C. 建立扩散与自蒸馏的类比",
+            "D. 增加第四个网络组件"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "DSD合并三部分为单一模型、识别latent collapse原因、建立扩散与自蒸馏类比，不增加第四个组件。参考：《Diffusion As Self-Distillation》，Wang & Zhang, 2025"
+        },
+        {
+          "id": 65,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "以下关于GeneFace++的描述，哪些是正确的？",
+          "options": [
+            "A. 基于NeRF渲染技术",
+            "B. 实现泛化的音频-唇同步",
+            "C. 使用音高轮廓作为辅助特征",
+            "D. 使用GAN替代NeRF"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "GeneFace++基于NeRF、实现泛化音频-唇同步、使用音高轮廓辅助特征，不使用GAN替代NeRF。参考：《GeneFace++》，Ye et al., 2023"
+        },
+        {
+          "id": 66,
+          "difficulty": "medium",
+          "direction": "全景图像生成",
+          "question": "PAR模型相比现有方法的优势包括以下哪些？",
+          "options": [
+            "A. 避免i.i.d.高斯噪声假设约束",
+            "B. 统一文本和图像条件生成",
+            "C. 使用更高效的扩散模型",
+            "D. 支持多种全景图像生成任务"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "PAR避免i.i.d.约束、统一文本和图像条件、支持多种任务，但使用掩码自回归而非更高效的扩散模型。参考：《Conditional Panoramic Image Generation via Masked Autoregressive Modeling》，Wang et al., 2025"
+        },
+        {
+          "id": 67,
+          "difficulty": "medium",
+          "direction": "时间序列预测",
+          "question": "CN-Diff的创新包括以下哪些？",
+          "options": [
+            "A. 前向过程中的非线性变换",
+            "B. 可学习条件",
+            "C. 新的损失公式",
+            "D. 前向和反向过程的详细推导"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "CN-Diff包含非线性变换、可学习条件、新损失公式和完整的前向/反向过程推导。参考：《Conditional Diffusion Model with Nonlinear Data Transformation for Time Series Forecasting》，Rishi et al., 2025"
+        },
+        {
+          "id": 68,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "以下关于ExploreGS(2505.10578)的描述，哪些是正确的？",
+          "options": [
+            "A. 基于视觉的低开销框架",
+            "B. 使用RGB图像",
+            "C. 集成场景探索和模型重建",
+            "D. 仅适用于室内场景"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "ExploreGS基于视觉、使用RGB图像、集成探索和重建，在仿真和真实环境中都验证了适用性。参考：《ExploreGS》，Feng et al., 2025"
+        },
+        {
+          "id": 69,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "SEMPART的关键技术特点包括以下哪些？",
+          "options": [
+            "A. 基于DINO语义图",
+            "B. 图驱动正则化保留细边界细节",
+            "C. 粗掩码语义蒸馏到细掩码",
+            "D. 需要大量标注数据"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "SEMPART基于DINO语义图、图驱动正则化、粗到细蒸馏，且不需要标注数据(自监督方法)。参考：《SEMPART》，Ravindran & Basu"
+        },
+        {
+          "id": 70,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "APG方法的特点包括以下哪些？",
+          "options": [
+            "A. 降低平行组件权重",
+            "B. 兼容各种条件扩散模型和采样器",
+            "C. 引入额外计算开销",
+            "D. 改善FID、recall和饱和度分数"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "APG降低平行组件权重、兼容各种模型和采样器、改善多个指标，且不引入额外计算开销。参考：《Eliminating Oversaturation and Artifacts》，Sadat et al., ICLR 2025"
+        },
+        {
+          "id": 71,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "Bind-Your-Avatar支持以下哪些功能？",
+          "options": [
+            "A. 多流语音音频输入",
+            "B. 重叠语音处理",
+            "C. 提示驱动的无修复帧多说话角色视频生成",
+            "D. 仅支持单人对话"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "Bind-Your-Avatar支持多流语音、重叠语音和提示驱动无修复帧多角色生成，不限于单人对话。参考：《Bind-Your-Avatar》，Huang et al., 2025"
+        },
+        {
+          "id": 72,
+          "difficulty": "medium",
+          "direction": "多模态复合编辑",
+          "question": "多模态复合编辑的应用领域包括以下哪些？",
+          "options": [
+            "A. 创意产业",
+            "B. 教育",
+            "C. 用户驱动的内容修改",
+            "D. 仅学术研究"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "多模态复合编辑在创意产业、教育和用户驱动内容修改等领域有重要应用，不仅限于学术研究。参考：《A survey of multimodal composite editing and retrieval》，Li et al., 2025"
+        },
+        {
+          "id": 73,
+          "difficulty": "medium",
+          "direction": "GUI Agent",
+          "question": "TongUI数据来源的教程类型包括以下哪些？",
+          "options": [
+            "A. 视频教程",
+            "B. 文章教程",
+            "C. 仅学术论文",
+            "D. 跨越多个操作系统"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "TongUI从视频和文章等多模态网络教程中获取数据，跨越多个操作系统，不仅限于学术论文。参考：《TongUI》，Zhang et al., 2025"
+        },
+        {
+          "id": 74,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "DvD现象的研究发现包括以下哪些？",
+          "options": [
+            "A. 系统研究了多概念提示中的生成性坍缩问题",
+            "B. 一个概念token主导生成过程",
+            "C. 该现象仅出现在特定模型上",
+            "D. 提出了应对策略"
+          ],
+          "answer": [
+            "A",
+            "B"
+          ],
+          "explanation": "DvD系统研究生成性坍缩问题、发现概念主导现象，论文标题暗示提出了应对策略但核心是现象分析。参考：《Dominating vs. Dominated》，Jeong & Lee, 2025"
+        },
+        {
+          "id": 75,
+          "difficulty": "easy",
+          "direction": "AI辅助笔记",
+          "question": "NoteBar数据集的特点包括以下哪些？",
+          "options": [
+            "A. 3173条笔记",
+            "B. 8494个标注概念",
+            "C. 跨越16种MBTI人格",
+            "D. 仅包含英文笔记"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "NoteBar数据集包含3173条笔记、8494个标注概念、跨越16种MBTI人格，提供多样性和语义丰富性。参考：《NoteBar》，Wisoff et al."
+        },
+        {
+          "id": 76,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "TPS-SCL网络的核心组件包括以下哪些？",
+          "options": [
+            "A. 双流MobileViT编码器",
+            "B. 语义关联约束模块(SCCM)",
+            "C. 薄板样条对齐模块(TPSAM)",
+            "D. 跨模态关联模块(CMCM)"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "explanation": "TPS-SCL包含双流MobileViT编码器、SCCM、TPSAM和CMCM四个核心组件，实现无需显式对齐的RGB-T SOD。参考：《Breaking Alignment Barriers: TPS-Driven Semantic Correlation Learning》，Hu et al., 2025"
+        },
+        {
+          "id": 77,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "SoulX-FlashHead的Streaming-Aware Spatiotemporal Pre-training包含什么机制？",
+          "options": [
+            "A. Temporal Audio Context Cache",
+            "B. Oracle-Guided Bidirectional Distillation",
+            "C. VIVID数据集",
+            "D. 仅使用单向注意力"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "SoulX-FlashHead包含Temporal Audio Context Cache、Oracle-Guided Bidirectional Distillation和VividHead数据集，不使用仅单向注意力。参考：《SoulX-FlashHead》，Yu et al., 2026"
+        },
+        {
+          "id": 78,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "以下关于ActiveGAMER的描述，哪些是正确的？",
+          "options": [
+            "A. 利用3DGS的高效渲染能力",
+            "B. 基于渲染的信息增益模块",
+            "C. 使用NeRF替代3DGS",
+            "D. 在Replica和MP3D上评估"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "D"
+          ],
+          "explanation": "ActiveGAMER利用3DGS高效渲染、基于渲染的信息增益、在Replica和MP3D上评估，使用3DGS而非NeRF。参考：《ActiveGAMER》，Chen et al., 2025"
+        },
+        {
+          "id": 79,
+          "difficulty": "medium",
+          "direction": "图像描述",
+          "question": "MirrorDiff在图像描述任务中的核心创新点包括以下哪些？",
+          "options": [
+            "A. 镜像扩散机制",
+            "B. 再生(regeneration)策略",
+            "C. 多描述候选生成与选择",
+            "D. 使用更大的语言模型"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "MirrorDiff通过镜像扩散、再生策略和多候选选择来改善图像描述质量，不依赖更大的语言模型。参考：《MirrorDiff》，Wang et al., ICMR 2025"
+        },
+        {
+          "id": 80,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "DSD在ImageNet 256x256条件生成任务上的性能包括以下哪些？",
+          "options": [
+            "A. FID=13.44 (42M参数, 50 epoch)",
+            "B. FID=6.38 (118M参数, 50 epoch)",
+            "C. FID=4.25 (205M参数, 50 epoch)",
+            "D. 需要classifier-free guidance"
+          ],
+          "answer": [
+            "A",
+            "B",
+            "C"
+          ],
+          "explanation": "DSD在42M/118M/205M参数下分别达到FID 13.44/6.38/4.25，且不需要classifier-free guidance。参考：《Diffusion As Self-Distillation》，Wang & Zhang, 2025"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "title": "判断题（20题×0.5分）",
+      "score_per_question": 0.5,
+      "questions": [
+        {
+          "id": 81,
+          "difficulty": "hard",
+          "direction": "音乐生成",
+          "question": "BemaGANv2在生成器中使用传统ResBlocks作为基本构建块。",
+          "answer": false,
+          "explanation": "BemaGANv2用Anti-aliased Multi-Periodicity composition (AMP)模块替代了传统ResBlocks。参考：《BemaGANv2》，Park et al., 2025"
+        },
+        {
+          "id": 82,
+          "difficulty": "easy",
+          "direction": "音乐信息检索",
+          "question": "N2N将自动鼓转录(ADT)从判别式任务重新定义为条件生成任务。",
+          "answer": true,
+          "explanation": "N2N重新定义ADT为条件生成任务，利用扩散建模将音频条件高斯噪声转换为鼓事件。参考：《Noise-to-Notes》，Yeung et al."
+        },
+        {
+          "id": 83,
+          "difficulty": "hard",
+          "direction": "隐私保护",
+          "question": "AdaDPSyn需要访问源域的私有数据来生成合成示例。",
+          "answer": false,
+          "explanation": "AdaDPSyn从私有数据集生成合成示例，然后使用这些合成示例进行ICL，其目标是保护私有信息不被泄露。参考：《Data-Adaptive Differentially Private Prompt Synthesis》，Gao et al., ICLR 2025"
+        },
+        {
+          "id": 84,
+          "difficulty": "easy",
+          "direction": "AI辅助笔记",
+          "question": "AI辅助笔记研究发现全自动AI辅助产生了最高的学习成果。",
+          "answer": false,
+          "explanation": "研究发现中等AI辅助(Intermediate AI)产生最高学习成果，全自动AI(Automated AI)得分最低。参考：《More AI Assistance Reduces Cognitive Engagement》，Chen et al."
+        },
+        {
+          "id": 85,
+          "difficulty": "hard",
+          "direction": "多分类器系统",
+          "question": "Brown的分析表明成对多样性可以完全捕获集成系统中的多样性信息。",
+          "answer": false,
+          "explanation": "Brown发现多样性存在于多个相关性阶次，成对多样性只能捕获低阶分量，不能完全捕获多样性信息。参考：《An Information Theoretic Perspective on Multiple Classifier Systems》，Brown"
+        },
+        {
+          "id": 86,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "IFA模型使用深度信息进行显著性检测。",
+          "answer": false,
+          "explanation": "IFA使用基于Retinex理论的光照图而非深度信息，光照易获取且能避免深度不平衡问题。参考：《IFA》，Li et al., 2025"
+        },
+        {
+          "id": 87,
+          "difficulty": "hard",
+          "direction": "AI Agent",
+          "question": "EvoScientist使用静态手工设计的pipeline进行科学发现。",
+          "answer": false,
+          "explanation": "EvoScientist通过持久记忆和自我进化持续改进研究策略，解决了现有系统依赖静态pipeline的局限。参考：《EvoScientist》，Lyu et al., 2026"
+        },
+        {
+          "id": 88,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "AniPortrait使用扩散模型配合运动模块生成肖像动画。",
+          "answer": true,
+          "explanation": "AniPortrait使用鲁棒扩散模型配合运动模块将关键点序列转换为照片级真实的时间一致肖像动画。参考：《AniPortrait》，Wei et al., 2024"
+        },
+        {
+          "id": 89,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "APG方法在采样过程中引入了显著的额外计算开销。",
+          "answer": false,
+          "explanation": "APG易于实现且在采样过程中几乎不引入额外计算开销。参考：《Eliminating Oversaturation and Artifacts》，Sadat et al., ICLR 2025"
+        },
+        {
+          "id": 90,
+          "difficulty": "easy",
+          "direction": "显著性检测",
+          "question": "SEMPART是一种自监督方法，不需要标注数据进行显著性检测。",
+          "answer": true,
+          "explanation": "SEMPART基于DINO自监督特征进行对象分区，无需标注数据即可产生高质量掩码。参考：《SEMPART》，Ravindran & Basu"
+        },
+        {
+          "id": 91,
+          "difficulty": "hard",
+          "direction": "GUI Agent",
+          "question": "TongUI仅支持Windows操作系统的GUI任务。",
+          "answer": false,
+          "explanation": "TongUI的GUI-Net-1M数据集跨越5个操作系统(Windows, MacOS, Android, iOS, Linux)和280多个应用。参考：《TongUI》，Zhang et al., 2025"
+        },
+        {
+          "id": 92,
+          "difficulty": "easy",
+          "direction": "全景图像生成",
+          "question": "PAR模型使用掩码自回归建模来避免扩散模型的i.i.d.高斯噪声假设约束。",
+          "answer": true,
+          "explanation": "PAR使用掩码自回归建模避免i.i.d.约束，统一了文本到全景图和外画等任务。参考：《Conditional Panoramic Image Generation via Masked Autoregressive Modeling》，Wang et al., 2025"
+        },
+        {
+          "id": 93,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "SAGD保持前向过程为非高斯分布以增加灵活性。",
+          "answer": false,
+          "explanation": "SAGD保持前向过程为高斯分布(Gaussian)，同时通过频率对角协方差引入各向异性。参考：《Learning What Matters》，Scimeca et al., 2025"
+        },
+        {
+          "id": 94,
+          "difficulty": "easy",
+          "direction": "数字人",
+          "question": "Bind-Your-Avatar能够处理重叠语音(overlapping speech)场景。",
+          "answer": true,
+          "explanation": "Bind-Your-Avatar鲁棒地处理重叠语音，支持多说话角色在同一空间环境中的统一对话视频生成。参考：《Bind-Your-Avatar》，Huang et al., 2025"
+        },
+        {
+          "id": 95,
+          "difficulty": "hard",
+          "direction": "视觉自回归模型",
+          "question": "SWG框架仅适用于连续自回归模型，不适用于离散模型。",
+          "answer": false,
+          "explanation": "SWG在离散和连续自回归模型上都进行了广泛实验，支持文本或类别条件，适用于两种类型的模型。参考：《Guiding Visual Autoregressive Models through Spectrum Weakening》，Wang et al., 2025"
+        },
+        {
+          "id": 96,
+          "difficulty": "easy",
+          "direction": "显著性检测",
+          "question": "TwinsTNet在10个BSOD基准数据集上优于22个现有SOTA模型。",
+          "answer": true,
+          "explanation": "TwinsTNet广泛实验表明在10个BSOD基准数据集上优于22个现有SOTA模型。参考：《TwinsTNet》，Lyu et al., 2025"
+        },
+        {
+          "id": 97,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "DSD框架需要使用classifier-free guidance来达到报告的性能。",
+          "answer": false,
+          "explanation": "DSD在不使用classifier-free guidance的情况下达到报告的FID性能(13.44/6.38/4.25)。参考：《Diffusion As Self-Distillation》，Wang & Zhang, 2025"
+        },
+        {
+          "id": 98,
+          "difficulty": "easy",
+          "direction": "AI辅助笔记",
+          "question": "NoteBar提出的人格条件数据集跨越16种MBTI人格类型。",
+          "answer": true,
+          "explanation": "NoteBar提出包含3173条笔记和8494个标注概念的人格条件数据集，跨越16种MBTI人格。参考：《NoteBar》，Wisoff et al."
+        },
+        {
+          "id": 99,
+          "difficulty": "hard",
+          "direction": "时间序列预测",
+          "question": "CN-Diff使用标准线性变换在前向过程中处理时间序列数据。",
+          "answer": false,
+          "explanation": "CN-Diff在前向过程中引入新颖的非线性变换和可学习条件，而非标准线性变换。参考：《Conditional Diffusion Model with Nonlinear Data Transformation for Time Series Forecasting》，Rishi et al., 2025"
+        },
+        {
+          "id": 100,
+          "difficulty": "easy",
+          "direction": "3D重建",
+          "question": "ExploreGS(2505.10578)框架集成了场景探索和模型重建两个过程。",
+          "answer": true,
+          "explanation": "ExploreGS集成场景探索和3DGS模型重建，利用BoW模型实现实时处理，使3DGS训练可在机载执行。参考：《ExploreGS》，Feng et al., 2025"
+        }
+      ]
+    }
+  ]
+}

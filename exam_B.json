@@ -1,0 +1,1309 @@
+{
+  "exam_id": "B",
+  "title": "扩散模型与视觉计算前沿 - 考卷B",
+  "total_score": 100,
+  "duration_minutes": 120,
+  "sections": [
+    {
+      "type": "single_choice",
+      "title": "单选题（50题×1分）",
+      "score_per_question": 1,
+      "questions": [
+        {
+          "id": 1,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "PixelDiT选择在像素空间直接进行扩散而非潜在空间的核心动机是什么？",
+          "options": [
+            "A. 像素空间计算更高效",
+            "B. 避免预训练自编码器引入的有损重建和信息瓶颈",
+            "C. 像素空间训练更稳定",
+            "D. 潜在空间无法进行扩散"
+          ],
+          "answer": "B",
+          "explanation": "PixelDiT认为潜在空间建模依赖两阶段pipeline，预训练自编码器引入有损重建，因此选择在像素空间直接使用扩散Transformer进行图像生成。参考：《PixelDiT: Pixel Diffusion Transformers for Image Generation》，Yu et al., 2025"
+        },
+        {
+          "id": 2,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "Diffusion As Self-Distillation方法对标准LDM三部分架构的改进是什么？",
+          "options": [
+            "A. 增加第四个网络组件",
+            "B. 将分离的编码器、解码器和扩散网络合并为单一端到端模型",
+            "C. 仅移除编码器",
+            "D. 仅移除解码器"
+          ],
+          "answer": "B",
+          "explanation": "标准LDM依赖复杂的三部分架构(编码器、解码器、扩散网络)分阶段训练，Diffusion As Self-Distillation将扩散视为自蒸馏过程，在单一模型中实现端到端潜在扩散。参考：《Diffusion As Self-Distillation: End-to-End Latent Diffusion In One Model》，Wang & Zhang, 2025"
+        },
+        {
+          "id": 3,
+          "difficulty": "hard",
+          "direction": "视频生成",
+          "question": "Trajectory Attention在视频扩散模型中实现细粒度运动控制的机制是什么？",
+          "options": [
+            "A. 通过文本提示控制运动",
+            "B. 通过轨迹注意力机制实现帧间运动的精确控制",
+            "C. 通过光流估计引导生成",
+            "D. 通过3D姿态估计控制"
+          ],
+          "answer": "B",
+          "explanation": "Trajectory Attention提出轨迹注意力机制，在视频扩散模型中实现细粒度的视频运动控制，使生成视频中的物体能够按照指定轨迹运动。参考：《Trajectory Attention for Fine-Grained Video Motion Control》，Xiao et al., 2024"
+        },
+        {
+          "id": 4,
+          "difficulty": "hard",
+          "direction": "视频生成",
+          "question": "Video Diffusion Models作为训练无关的运动解释器和控制器的核心发现是什么？",
+          "options": [
+            "A. 视频扩散模型无法理解运动",
+            "B. 视频扩散模型的中间特征天然编码了运动信息，可直接用于运动解释和控制而无需额外训练",
+            "C. 需要微调才能控制运动",
+            "D. 仅能控制全局运动"
+          ],
+          "answer": "B",
+          "explanation": "该论文发现视频扩散模型的中间特征天然编码了丰富的运动信息，可以直接提取和利用这些特征进行运动解释和控制，无需任何额外训练。参考：《Video Diffusion Models are Training-free Motion Interpreter and Controller》，Xiao et al., NeurIPS 2024"
+        },
+        {
+          "id": 5,
+          "difficulty": "hard",
+          "direction": "视频生成",
+          "question": "WorldMem实现长期一致世界模拟的关键技术是什么？",
+          "options": [
+            "A. 使用更大的模型参数",
+            "B. 引入记忆机制实现长期一致性",
+            "C. 使用更长的训练序列",
+            "D. 通过后处理保证一致性"
+          ],
+          "answer": "B",
+          "explanation": "WorldMem通过引入记忆机制来解决世界模拟中的长期一致性问题，使生成的虚拟环境在长时间跨度上保持一致性。参考：《WorldMem: Long-term Consistent World Simulation with Memory》，Xiao et al., 2025"
+        },
+        {
+          "id": 6,
+          "difficulty": "medium",
+          "direction": "扩散模型架构",
+          "question": "Trainable Log-linear Sparse Attention针对扩散Transformer的优化目标是什么？",
+          "options": [
+            "A. 提高生成图像的分辨率",
+            "B. 减少扩散Transformer中注意力的计算复杂度",
+            "C. 增加模型参数量",
+            "D. 改进训练数据质量"
+          ],
+          "answer": "B",
+          "explanation": "Trainable Log-linear Sparse Attention通过可训练的对数线性稀疏注意力机制来减少扩散Transformer的计算复杂度，包括压缩、Top-K选择和块稀疏注意力三个步骤。参考：《Trainable Log-linear Sparse Attention for Efficient Diffusion Transformers》，Zhou et al., 2025"
+        },
+        {
+          "id": 7,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "MMDiT在多主体生成中发现的问题是什么？",
+          "options": [
+            "A. 生成速度过慢",
+            "B. 当输入文本包含多个主体时出现主体忽略或混合",
+            "C. 无法处理文本条件",
+            "D. 仅能生成单主体图像"
+          ],
+          "answer": "B",
+          "explanation": "研究发现MMDiT在输入文本包含多个主体时仍会出现主体忽略或混合问题，需要专门的方法来增强多主体生成能力。参考：《Enhancing MMDiT-Based Text-to-Image Models for Similar Subject Generation》，Wei et al., 2025"
+        },
+        {
+          "id": 8,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "消除扩散模型中高引导尺度(CFG)导致的过饱和问题的方法核心思路是什么？",
+          "options": [
+            "A. 降低引导尺度",
+            "B. 通过理论分析找到过饱和的根本原因并针对性地消除",
+            "C. 增加训练数据",
+            "D. 使用更大的模型"
+          ],
+          "answer": "B",
+          "explanation": "该论文通过理论分析深入理解了高引导尺度导致过饱和和伪影的根本原因，并提出了针对性的消除方法。参考：《Eliminating Oversaturation and Artifacts of High Guidance Scales in Diffusion Models》，Sadat et al., ICLR 2025"
+        },
+        {
+          "id": 9,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "TPS-Driven方法在RGB-T显著性检测中解决的核心问题是什么？",
+          "options": [
+            "A. RGB和热图像的分辨率不匹配",
+            "B. RGB和热图像之间的对齐问题",
+            "C. 热图像质量差",
+            "D. RGB图像噪声大"
+          ],
+          "answer": "B",
+          "explanation": "TPS-Driven方法通过薄板样条(TPS)驱动的语义关联学习，打破了RGB-T显著性检测中的对齐壁垒，实现无需显式对齐的检测。参考：《Breaking Alignment Barriers: TPS-Driven Semantic Correlation Learning for Alignment-Free RGB-T Salient Object Detection》，Hu et al., 2025"
+        },
+        {
+          "id": 10,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "Cognition-Inspired Dynamic Feature Integration Network的设计灵感来源是什么？",
+          "options": [
+            "A. 卷积神经网络的结构",
+            "B. 人类认知过程中的动态特征整合机制",
+            "C. 强化学习的奖励机制",
+            "D. 进化算法的自然选择"
+          ],
+          "answer": "B",
+          "explanation": "该网络受人类认知过程中动态特征整合机制的启发，设计用于RGB-D和RGB-T显著性检测，通过认知启发的动态特征整合实现更好的检测性能。参考：《Cognition-Inspired Dynamic Feature Integration Network for RGB-D and RGB-T Salient Object Detection》，Wang et al., 2025"
+        },
+        {
+          "id": 11,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "Highly Efficient RGB-D SOD方法的主要目标是什么？",
+          "options": [
+            "A. 提高检测精度而忽略效率",
+            "B. 在保持性能的同时大幅减少参数量和计算复杂度",
+            "C. 仅减少推理时间",
+            "D. 使用更少的训练数据"
+          ],
+          "answer": "B",
+          "explanation": "该方法通过自适应融合和注意力调节实现高效RGB-D显著性检测，解决现有模型参数量大、计算复杂度高和推理速度慢的问题。参考：《Highly Efficient RGB-D Salient Object Detection With Adaptive Fusion and Attention Regulation》，Gao et al., 2025"
+        },
+        {
+          "id": 12,
+          "difficulty": "hard",
+          "direction": "图像恢复",
+          "question": "FRBNet从什么角度重新审视低光视觉问题？",
+          "options": [
+            "A. 空间域分析",
+            "B. 频域径向基网络",
+            "C. 时域分析",
+            "D. 语义域分析"
+          ],
+          "answer": "B",
+          "explanation": "FRBNet从频域角度重新审视低光视觉问题，提出频域径向基网络(Frequency-Domain Radial Basis Network)进行低光图像恢复。参考：《FRBNet: Revisiting Low-Light Vision through Frequency-Domain Radial Basis Network》，Sun et al., 2025"
+        },
+        {
+          "id": 13,
+          "difficulty": "hard",
+          "direction": "图像恢复",
+          "question": "From Enhancement to Understanding论文提出的通用桥接方法的核心思路是什么？",
+          "options": [
+            "A. 为每个下游任务单独训练模型",
+            "B. 通过语义一致的无监督微调建立从低光增强到理解的通用桥接",
+            "C. 使用大规模标注数据",
+            "D. 通过多任务学习联合训练"
+          ],
+          "answer": "B",
+          "explanation": "该论文提出通过语义一致的无监督微调建立从低光增强到理解的通用化桥接，使增强模型可以泛化到多种低光视觉理解任务。参考：《From Enhancement to Understanding: Build a Generalized Bridge for Low-light Vision via Semantically Consistent Unsupervised Fine-tuning》，Wang et al., 2025"
+        },
+        {
+          "id": 14,
+          "difficulty": "medium",
+          "direction": "图像恢复",
+          "question": "Conditional Bernoulli Diffusion Models用于什么特定任务？",
+          "options": [
+            "A. 自然图像超分辨率",
+            "B. 薄结构分割",
+            "C. 图像去噪",
+            "D. 图像修复"
+          ],
+          "answer": "B",
+          "explanation": "Conditional Bernoulli Diffusion Models with Consensus-Driven Correction专门用于薄结构分割任务，通过共识驱动修正提高分割精度。参考：《From Variability To Accuracy: Conditional Bernoulli Diffusion Models with Consensus-Driven Correction for Thin Structure Segmentation》，An et al., 2025"
+        },
+        {
+          "id": 15,
+          "difficulty": "hard",
+          "direction": "3D重建",
+          "question": "ActiveGAMER在主动高斯映射中的核心创新是什么？",
+          "options": [
+            "A. 使用更密集的3D高斯点",
+            "B. 通过高效渲染实现主动高斯映射",
+            "C. 使用NeRF替代高斯",
+            "D. 增加相机数量"
+          ],
+          "answer": "B",
+          "explanation": "ActiveGAMER通过高效渲染技术实现主动高斯映射(Active Gaussian Mapping)，智能选择最优视角进行3D场景重建。参考：《ActiveGAMER: Active Gaussian Mapping through Efficient Rendering》，Chen et al., 2025"
+        },
+        {
+          "id": 16,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "Auto3R在自动化3D重建中的核心贡献是什么？",
+          "options": [
+            "A. 提出新的3D表示方法",
+            "B. 通过数据驱动的量化不确定性实现自动化3D重建和扫描",
+            "C. 使用更大的模型",
+            "D. 提出新的相机标定方法"
+          ],
+          "answer": "B",
+          "explanation": "Auto3R通过数据驱动的不确定性量化实现自动化3D重建和扫描，系统能够自主决定何时重建质量足够。参考：《Auto3R: Automated 3D Reconstruction and Scanning via Data-driven Uncertainty Quantification》，Shen et al., 2025"
+        },
+        {
+          "id": 17,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "AvatarSync通过什么方式重新思考说话头动画生成？",
+          "options": [
+            "A. 使用3DMM模型",
+            "B. 通过音素引导的自回归方法",
+            "C. 使用GAN生成",
+            "D. 基于检索的方法"
+          ],
+          "answer": "B",
+          "explanation": "AvatarSync通过音素引导的自回归方法重新思考说话头动画生成，从自回归角度出发实现更自然的说话头动画。参考：《AvatarSync: Rethinking Talking-Head Animation through Phoneme-Guided Autoregressive Perspective》，Deng et al., 2025"
+        },
+        {
+          "id": 18,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "AV-Edit在音视频编辑中实现的核心功能是什么？",
+          "options": [
+            "A. 仅音频编辑",
+            "B. 通过音视频语义联合控制实现多模态生成式音效编辑",
+            "C. 仅视频编辑",
+            "D. 仅文本转语音"
+          ],
+          "answer": "B",
+          "explanation": "AV-Edit通过音视频语义联合控制实现多模态生成式音效编辑，能够同时考虑音频和视觉信息进行音效生成和编辑。参考：《AV-Edit: Multimodal Generative Sound Effect Editing via Audio-Visual Semantic Joint Control》，Guo et al., 2025"
+        },
+        {
+          "id": 19,
+          "difficulty": "hard",
+          "direction": "时间序列预测",
+          "question": "DC-Mamber模型的核心架构设计是什么？",
+          "options": [
+            "A. 单通道Mamba",
+            "B. 双通道预测模型，结合Mamba和线性Transformer",
+            "C. 仅使用线性Transformer",
+            "D. 仅使用Mamba"
+          ],
+          "answer": "B",
+          "explanation": "DC-Mamber提出双通道预测模型，结合Mamba和线性Transformer进行多变量时间序列预测，利用两种架构的互补优势。参考：《DC-Mamber: A Dual Channel Prediction Model based on Mamba and Linear Transformer for Multivariate Time Series Forecasting》，Fan et al., 2025"
+        },
+        {
+          "id": 20,
+          "difficulty": "medium",
+          "direction": "时间序列预测",
+          "question": "Mamba时间序列预测中引入不确定性量化的目的是什么？",
+          "options": [
+            "A. 提高预测精度",
+            "B. 提供预测结果的置信度评估",
+            "C. 减少训练时间",
+            "D. 减少模型参数"
+          ],
+          "answer": "B",
+          "explanation": "在Mamba时间序列预测中引入不确定性量化可以为预测结果提供置信度评估，使决策者能够了解预测的可靠程度。参考：《Mamba Time Series Forecasting with Uncertainty Quantification》，Pessoa et al., 2025"
+        },
+        {
+          "id": 21,
+          "difficulty": "hard",
+          "direction": "时间序列预测",
+          "question": "Repetitive Contrastive Learning如何增强Mamba在时间序列预测中的选择性？",
+          "options": [
+            "A. 增加训练数据量",
+            "B. 通过重复对比学习增强token级别的选择性",
+            "C. 使用更深的网络",
+            "D. 增加注意力头数"
+          ],
+          "answer": "B",
+          "explanation": "Repetitive Contrastive Learning通过token级别的训练范式和重复对比学习来增强Mamba的选择性机制，改善时间序列预测性能。参考：《Repetitive Contrastive Learning Enhances Mamba's Selectivity in Time Series Prediction》，Yan et al., 2025"
+        },
+        {
+          "id": 22,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "Fast Latent Upscale Adapter解决的核心问题是什么？",
+          "options": [
+            "A. 扩散模型训练速度慢",
+            "B. 扩散模型难以扩展到训练分辨率之外，后处理超分辨率引入伪影和延迟",
+            "C. 扩散模型生成质量差",
+            "D. 扩散模型需要大量内存"
+          ],
+          "answer": "B",
+          "explanation": "Fast Latent Upscale Adapter解决扩散模型难以扩展到训练分辨率之外的问题，且避免了后处理超分辨率引入的伪影和额外延迟（因为超分辨率在解码后操作）。参考：《Fast Latent Upscale Adapter for Your Diffusion Models》，Razin et al., 2024"
+        },
+        {
+          "id": 23,
+          "difficulty": "medium",
+          "direction": "扩散模型架构",
+          "question": "Latent Space Super-Resolution (LSRNA)的核心思想是什么？",
+          "options": [
+            "A. 在像素空间进行超分辨率",
+            "B. 在扩散模型的潜在空间中进行超分辨率",
+            "C. 使用GAN进行超分辨率",
+            "D. 使用插值进行超分辨率"
+          ],
+          "answer": "B",
+          "explanation": "LSRNA在扩散模型的潜在空间中进行超分辨率，与DemoFusion和Pixelsmith等方法结合，显著减少高分辨率图像生成的计算时间。参考：《Latent Space Super-Resolution for Higher-Resolution Image Generation with Diffusion Models》，Jeong et al., 2024"
+        },
+        {
+          "id": 24,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "DYffusion模型的核心创新是什么？",
+          "options": [
+            "A. 使用更快的采样器",
+            "B. 将动力学信息融入扩散模型用于时空预测",
+            "C. 使用更大的模型",
+            "D. 使用更多噪声步数"
+          ],
+          "answer": "B",
+          "explanation": "DYffusion提出动力学感知的扩散模型用于时空预测，将物理动力学信息融入扩散过程，实现稳定准确的时空预测。参考：《DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting》，Rühling Cachay et al., 2023"
+        },
+        {
+          "id": 25,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "Cold Diffusion on the Replay Buffer在机器人学习中的应用是什么？",
+          "options": [
+            "A. 生成训练数据",
+            "B. 从已知良好状态学习规划",
+            "C. 机器人视觉",
+            "D. 语音识别"
+          ],
+          "answer": "B",
+          "explanation": "Cold Diffusion on the Replay Buffer将冷扩散应用于强化学习的回放缓冲区，从已知的良好状态中学习规划策略。参考：《Cold Diffusion on the Replay Buffer: Learning to Plan from Known Good States》，Wang et al., 2023"
+        },
+        {
+          "id": 26,
+          "difficulty": "hard",
+          "direction": "扩散模型应用",
+          "question": "Cold Diffusion for Speech Enhancement的核心思路是什么？",
+          "options": [
+            "A. 使用高斯噪声增强语音",
+            "B. 将冷扩散的任意变换思想应用于语音增强任务",
+            "C. 使用GAN增强语音",
+            "D. 仅使用传统信号处理方法"
+          ],
+          "answer": "B",
+          "explanation": "Cold Diffusion for Speech Enhancement将冷扩散的思想扩展到语音领域，探索在语音增强中使用非高斯噪声变换的可能性。参考：《Cold Diffusion for Speech Enhancement》，Yen et al., 2024"
+        },
+        {
+          "id": 27,
+          "difficulty": "hard",
+          "direction": "扩散模型应用",
+          "question": "Leveraging Cold Diffusion for Superimposed Images Decomposition解决什么问题？",
+          "options": [
+            "A. 图像去噪",
+            "B. 同分布叠加图像的分解",
+            "C. 图像超分辨率",
+            "D. 图像修复"
+          ],
+          "answer": "B",
+          "explanation": "该方法利用冷扩散进行同分布叠加图像的分解，将混合图像分离为独立的成分图像。参考：《Leveraging Cold Diffusion for the Decomposition of Identically Distributed Superimposed Images》，Montenegro & Cardoso, 2025"
+        },
+        {
+          "id": 28,
+          "difficulty": "medium",
+          "direction": "扩散模型应用",
+          "question": "K-space Cold Diffusion for MRI Reconstruction的核心方法是什么？",
+          "options": [
+            "A. 在像素空间使用扩散模型",
+            "B. 在K空间直接使用冷扩散进行MRI重建，无需噪声",
+            "C. 使用GAN进行MRI重建",
+            "D. 使用传统压缩感知"
+          ],
+          "answer": "B",
+          "explanation": "该方法在K空间中直接使用冷扩散进行加速MRI重建，无需添加噪声，扩展了冷扩散在医学影像领域的应用。参考：《Learning to Reconstruct Accelerated MRI through K-space Cold Diffusion without Noise》，Shen et al., 2024"
+        },
+        {
+          "id": 29,
+          "difficulty": "hard",
+          "direction": "多模态学习",
+          "question": "GEA (Generation-Enhanced Alignment) 在文本到图像人物检索中的核心思路是什么？",
+          "options": [
+            "A. 直接使用CLIP进行检索",
+            "B. 通过生成增强对齐来改善文本到图像的人物检索",
+            "C. 使用更大的模型",
+            "D. 增加训练数据"
+          ],
+          "answer": "B",
+          "explanation": "GEA通过生成增强对齐的方式改善文本到图像人物检索的性能，利用生成模型来增强文本和图像之间的特征对齐。参考：《GEA: Generation-Enhanced Alignment for Text-to-Image Person Retrieval》，Zou et al., 2025"
+        },
+        {
+          "id": 30,
+          "difficulty": "hard",
+          "direction": "多模态学习",
+          "question": "Rethinking Visual Information Processing in Multimodal LLMs论文的核心观点是什么？",
+          "options": [
+            "A. 当前多模态LLM的视觉处理已经足够好",
+            "B. 需要重新思考多模态LLM中的视觉信息处理方式",
+            "C. 仅需增加视觉编码器参数",
+            "D. 仅需更多训练数据"
+          ],
+          "answer": "B",
+          "explanation": "该论文指出尽管多模态LLM取得了显著进展，但在视觉信息处理方面仍存在需要重新思考和改进的问题。参考：《Rethinking Visual Information Processing in Multimodal LLMs》，Kim et al., 2025"
+        },
+        {
+          "id": 31,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "Source-free Depth for Object Pop-out的核心特点是什么？",
+          "options": [
+            "A. 需要源域深度数据",
+            "B. 无需源域深度数据即可实现基于深度的目标突出",
+            "C. 仅使用RGB图像",
+            "D. 使用激光雷达数据"
+          ],
+          "answer": "B",
+          "explanation": "Source-free Depth for Object Pop-out在无需源域深度数据的情况下，利用深度线索实现目标突出检测。参考：《Source-free Depth for Object Pop-out》，Wu et al., 2022"
+        },
+        {
+          "id": 32,
+          "difficulty": "hard",
+          "direction": "视觉自回归模型",
+          "question": "REAR (Rethinking Visual Autoregressive Models) 提出的Generator-Tokenizer Consistency Regularization解决什么问题？",
+          "options": [
+            "A. 生成速度慢",
+            "B. 生成器和分词器之间的不一致问题",
+            "C. 图像质量差",
+            "D. 训练不稳定"
+          ],
+          "answer": "B",
+          "explanation": "REAR通过生成器-分词器一致性正则化来解决视觉自回归模型中生成器和分词器之间的不一致问题，提升生成质量。参考：《REAR: Rethinking Visual Autoregressive Models via Generator-Tokenizer Consistency Regularization》，He et al., 2025"
+        },
+        {
+          "id": 33,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "Learning What Matters: Steering Diffusion via Spectrally Anisotropic Forward Noise的核心方法是什么？",
+          "options": [
+            "A. 使用各向同性噪声",
+            "B. 通过谱各向异性前向噪声引导扩散过程关注重要特征",
+            "C. 增加噪声步数",
+            "D. 使用更大的模型"
+          ],
+          "answer": "B",
+          "explanation": "该方法通过谱各向异性(spectrally anisotropic)前向噪声来引导扩散过程，使模型学习到真正重要的特征而非不重要的变化。参考：《Learning What Matters: Steering Diffusion via Spectrally Anisotropic Forward Noise》，Scimeca et al., 2025"
+        },
+        {
+          "id": 34,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "Power of Boundary and Reflection论文解决什么特定的分割问题？",
+          "options": [
+            "A. 通用语义分割",
+            "B. 透明物体分割",
+            "C. 医学图像分割",
+            "D. 遥感图像分割"
+          ],
+          "answer": "B",
+          "explanation": "该论文利用边界和反射的先验知识，通过带有透明线索的金字塔视觉Transformer实现语义透明物体分割。参考：《Power of Boundary and Reflection: Semantic Transparent Object Segmentation using Pyramid Vision Transformer with Transparent Cues》，Vu et al., 2025"
+        },
+        {
+          "id": 35,
+          "difficulty": "hard",
+          "direction": "测试时适应",
+          "question": "Self-evolved Imitation Learning在模拟世界中的核心方法是什么？",
+          "options": [
+            "A. 从人类演示中学习",
+            "B. 在模拟世界中通过自我进化进行模仿学习",
+            "C. 使用强化学习",
+            "D. 使用监督学习"
+          ],
+          "answer": "B",
+          "explanation": "Self-evolved Imitation Learning在模拟世界环境中通过自我进化的方式进行模仿学习，训练跨多任务的通用智能体。参考：《Self-evolved Imitation Learning in Simulated World》，Ye et al., 2025"
+        },
+        {
+          "id": 36,
+          "difficulty": "medium",
+          "direction": "测试时适应",
+          "question": "Temporal Realism Evaluation of Generated Videos使用什么特征评估生成视频？",
+          "options": [
+            "A. 像素级差异",
+            "B. 压缩域运动向量",
+            "C. 光流",
+            "D. 深度特征"
+          ],
+          "answer": "B",
+          "explanation": "该方法使用压缩域运动向量来评估生成视频的时间真实性，提供了一种高效的无需解码的视频质量评估方法。参考：《Temporal Realism Evaluation of Generated Videos Using Compressed-Domain Motion Vectors》，Cakiroglu, 2025"
+        },
+        {
+          "id": 37,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "Guiding Visual Autoregressive Models through Spectrum Weakening的核心方法是什么？",
+          "options": [
+            "A. 增强频谱特征",
+            "B. 通过频谱减弱引导视觉自回归模型生成",
+            "C. 使用频域滤波",
+            "D. 增加模型深度"
+          ],
+          "answer": "B",
+          "explanation": "该方法通过频谱减弱(Spectrum Weakening)来引导视觉自回归模型的生成过程，改善生成质量。参考：《Guiding Visual Autoregressive Models through Spectrum Weakening》，Wang et al., 2025"
+        },
+        {
+          "id": 38,
+          "difficulty": "hard",
+          "direction": "扩散模型应用",
+          "question": "Supervised Diffusion Modeling for CTR Prediction的核心创新是什么？",
+          "options": [
+            "A. 使用扩散模型生成推荐列表",
+            "B. 将监督扩散建模应用于点击率预测解决冷启动问题",
+            "C. 使用扩散模型生成用户画像",
+            "D. 使用扩散模型进行特征提取"
+          ],
+          "answer": "B",
+          "explanation": "该方法将监督扩散建模应用于点击率预测，通过扩散过程解决推荐系统中的冷启动问题。参考：《Addressing Cold-Start Problem in Click-Through Rate Prediction via Supervised Diffusion Modeling》，Zhu et al., 2025"
+        },
+        {
+          "id": 39,
+          "difficulty": "medium",
+          "direction": "扩散模型架构",
+          "question": "Blind Image Super-Resolution综述指出的核心挑战是什么？",
+          "options": [
+            "A. 超分辨率速度慢",
+            "B. 在未知退化下进行超分辨率",
+            "C. 超分辨率模型太大",
+            "D. 训练数据不足"
+          ],
+          "answer": "B",
+          "explanation": "Blind Image Super-Resolution旨在从具有未知退化的低分辨率图像中恢复高分辨率图像，核心挑战在于处理未知的退化类型。参考：《Blind Image Super-Resolution: A Survey and Beyond》，Liu et al., 2024"
+        },
+        {
+          "id": 40,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "ORION在扩散模型中的核心贡献是什么？",
+          "options": [
+            "A. 提出新的噪声调度",
+            "B. 解耦和对齐扩散模型中的表示",
+            "C. 提出新的采样方法",
+            "D. 提出新的损失函数"
+          ],
+          "answer": "B",
+          "explanation": "ORION通过解耦和对齐(Decoupling and Alignment)扩散模型中的表示来改善生成质量和训练效率。参考：《ORION: Decoupling and Alignment for Diffusion Models》，2025"
+        },
+        {
+          "id": 41,
+          "difficulty": "medium",
+          "direction": "GUI Agent",
+          "question": "TongUI框架构建通用GUI Agent的数据来源是什么？",
+          "options": [
+            "A. 人工标注",
+            "B. 从网络多模态教程(视频和文章)中爬取和处理",
+            "C. 合成数据",
+            "D. 开源数据集"
+          ],
+          "answer": "B",
+          "explanation": "TongUI从网络多模态教程(视频和文章)中爬取和处理GUI轨迹数据，构建了跨越5个操作系统和280多个应用的GUI-Net-1M数据集。参考：《TongUI: Building Generalized GUI Agents by Learning from Multimodal Web Tutorials》，Zhang et al., 2025"
+        },
+        {
+          "id": 42,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "Understanding and Contextualising Diffusion Models论文的核心贡献是什么？",
+          "options": [
+            "A. 提出新的扩散模型架构",
+            "B. 对扩散模型进行全面的理解和情境化分析",
+            "C. 提出新的训练方法",
+            "D. 提出新的采样算法"
+          ],
+          "answer": "B",
+          "explanation": "该论文对扩散生成模型进行了全面的理解和情境化分析，帮助研究者和实践者更好地理解扩散模型的工作原理和应用场景。参考：《Understanding and Contextualising Diffusion Models》，Scotta & Messina, 2023"
+        },
+        {
+          "id": 43,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "SONOWORLD框架解决的核心问题是什么？",
+          "options": [
+            "A. 仅生成3D视觉场景",
+            "B. 从单张图像生成包含声音的3D音视频场景",
+            "C. 仅生成音频",
+            "D. 仅进行图像编辑"
+          ],
+          "answer": "B",
+          "explanation": "SONOWORLD提出从单张图像生成3D音视频场景的任务(IMAGE2AVSCENE)，是首个解决这一挑战的框架，将视觉场景生成扩展到包含声音的完整沉浸式体验。参考：《SONOWORLD: From One Image to a 3D Audio-Visual Scene》，Jin et al., 2026"
+        },
+        {
+          "id": 44,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "Conditional Diffusion Model with Nonlinear Data Transformation for Time Series Forecasting的核心创新是什么？",
+          "options": [
+            "A. 使用标准扩散模型",
+            "B. 在条件扩散模型中引入非线性数据变换用于时间序列预测",
+            "C. 使用线性变换",
+            "D. 不使用条件信息"
+          ],
+          "answer": "B",
+          "explanation": "该方法在条件扩散模型中引入非线性数据变换来处理时间序列数据的特殊性质，改善时间序列预测性能。参考：《Conditional Diffusion Model with Nonlinear Data Transformation for Time Series Forecasting》，Rishi et al., 2025"
+        },
+        {
+          "id": 45,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "SEGDINO在医学图像分割中的核心优势是什么？",
+          "options": [
+            "A. 使用最大的模型",
+            "B. 高效的设计，利用DINO特征进行医学图像分割",
+            "C. 使用3D卷积",
+            "D. 需要大量标注数据"
+          ],
+          "answer": "B",
+          "explanation": "SEGDINO提出一种高效设计，利用DINO自监督视觉特征进行医学图像分割，在效率和质量之间取得良好平衡。参考：《SEGDINO: An Efficient Design for Medical Image Segmentation》，2025"
+        },
+        {
+          "id": 46,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "Scan Clusters, Not Pixels方法解决UHD图像恢复的核心思路是什么？",
+          "options": [
+            "A. 降低图像分辨率处理",
+            "B. 以聚类而非像素为处理单元实现高效UHD恢复",
+            "C. 使用分块处理",
+            "D. 使用级联网络"
+          ],
+          "answer": "B",
+          "explanation": "该方法提出以聚类为中心的范式，通过扫描聚类而非像素来处理UHD图像恢复，突破了现有模型受限于固定分辨率的可扩展性瓶颈。参考：《Scan Clusters, Not Pixels: A Cluster-Centric Paradigm for Efficient Ultra-high-definition Image Restoration》，Wu et al., 2026"
+        },
+        {
+          "id": 47,
+          "difficulty": "medium",
+          "direction": "多模态学习",
+          "question": "Next-Frame Feature Prediction for Multimodal Deepfake Detection的核心方法是什么？",
+          "options": [
+            "A. 分析单帧图像特征",
+            "B. 通过预测下一帧特征进行多模态深度伪造检测和时间定位",
+            "C. 使用音频分析",
+            "D. 使用文本分析"
+          ],
+          "answer": "B",
+          "explanation": "该方法通过下一帧特征预测进行多模态深度伪造检测和时间定位，利用帧间不一致性来识别伪造内容。参考：《Next-Frame Feature Prediction for Multimodal Deepfake Detection and Temporal Localization》，Anshul et al., 2025"
+        },
+        {
+          "id": 48,
+          "difficulty": "hard",
+          "direction": "多模态学习",
+          "question": "Facial-R1在面部情感分析中的核心创新是什么？",
+          "options": [
+            "A. 仅进行情感分类",
+            "B. 对齐推理和识别进行可解释的细粒度面部情感分析",
+            "C. 使用更大的模型",
+            "D. 使用更多训练数据"
+          ],
+          "answer": "B",
+          "explanation": "Facial-R1将面部情感分析扩展为包含可解释细粒度推理的任务，整合情感分类、情感解释和情感原因三个子任务，对齐推理和识别能力。参考：《Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis》，Wu et al., 2025"
+        },
+        {
+          "id": 49,
+          "difficulty": "medium",
+          "direction": "视觉表示学习",
+          "question": "Talking to DINO方法的核心思路是什么？",
+          "options": [
+            "A. 微调DINO模型",
+            "B. 通过与DINO特征对话实现视觉任务",
+            "C. 替换DINO为其他模型",
+            "D. 使用DINO进行分类"
+          ],
+          "answer": "B",
+          "explanation": "Talking to DINO通过与DINO自监督视觉特征进行交互来实现各种视觉任务，探索DINO特征的对话式应用。参考：《Talking to DINO》，2025"
+        },
+        {
+          "id": 50,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "Leveraging Hidden Positives for Unsupervised Semantic Segmentation的核心方法是什么？",
+          "options": [
+            "A. 使用标注数据",
+            "B. 利用隐藏正样本进行无监督语义分割",
+            "C. 使用半监督学习",
+            "D. 使用对比学习"
+          ],
+          "answer": "B",
+          "explanation": "该方法通过发现和利用隐藏正样本来改善无监督语义分割的性能，无需任何标注数据。参考：《Leveraging Hidden Positives for Unsupervised Semantic Segmentation》，2024"
+        }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "title": "多选题（30题×1.5分）",
+      "score_per_question": 1.5,
+      "questions": [
+        {
+          "id": 51,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "PixelDiT相比潜在空间扩散模型的优势包括以下哪些？",
+          "options": [
+            "A. 避免预训练自编码器的有损重建",
+            "B. 消除两阶段pipeline的复杂性",
+            "C. 计算成本更低",
+            "D. 不受自编码器信息瓶颈限制"
+          ],
+          "answer": ["A", "B", "D"],
+          "explanation": "PixelDiT避免自编码器有损重建、消除两阶段复杂性、不受信息瓶颈限制，但像素空间计算成本通常更高而非更低。参考：《PixelDiT: Pixel Diffusion Transformers for Image Generation》，Yu et al., 2025"
+        },
+        {
+          "id": 52,
+          "difficulty": "hard",
+          "direction": "视频生成",
+          "question": "以下关于视频扩散模型运动理解和控制的方法，哪些是正确的？",
+          "options": [
+            "A. Trajectory Attention通过注意力机制实现细粒度运动控制",
+            "B. 训练无关方法利用中间特征进行运动解释",
+            "C. WorldMem通过记忆机制实现长期一致性",
+            "D. 所有方法都需要额外训练"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "Trajectory Attention、训练无关运动控制和WorldMem分别从不同角度解决视频运动问题，其中训练无关方法不需要额外训练。参考：《Trajectory Attention》，Xiao et al., 2024; NeurIPS 2024"
+        },
+        {
+          "id": 53,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "以下关于RGB-D显著性检测方法的描述，哪些是正确的？",
+          "options": [
+            "A. SAM-DAQ使用深度引导的自适应查询",
+            "B. Cognition-Inspired方法受人类认知启发",
+            "C. Highly Efficient方法关注减少参数量和计算复杂度",
+            "D. 所有方法都使用相同的融合策略"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "SAM-DAQ、Cognition-Inspired和Highly Efficient方法分别从不同角度改进RGB-D显著性检测，它们使用不同的融合策略。参考：Lin et al., 2025; Wang et al., 2025; Gao et al., 2025"
+        },
+        {
+          "id": 54,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "以下关于Cold Diffusion应用的描述，哪些是正确的？",
+          "options": [
+            "A. Cold Diffusion可用于语音增强",
+            "B. Cold Diffusion可用于MRI重建",
+            "C. Cold Diffusion可用于叠加图像分解",
+            "D. Cold Diffusion仅适用于图像任务"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "Cold Diffusion已成功应用于语音增强、K空间MRI重建和叠加图像分解等多个领域，不仅限于图像任务。参考：Yen et al., 2024; Shen et al., 2024; Montenegro & Cardoso, 2025"
+        },
+        {
+          "id": 55,
+          "difficulty": "medium",
+          "direction": "时间序列预测",
+          "question": "以下关于Mamba在时间序列预测中的变体，哪些是正确的？",
+          "options": [
+            "A. DC-Mamber结合Mamba和线性Transformer",
+            "B. 引入不确定性量化",
+            "C. 使用重复对比学习增强选择性",
+            "D. 所有变体都使用相同的架构"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "DC-Mamber、不确定性量化和重复对比学习是Mamba在时间序列预测中的不同变体，它们使用不同的架构改进。参考：Fan et al., 2025; Pessoa et al., 2025; Yan et al., 2025"
+        },
+        {
+          "id": 56,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "以下关于潜在空间超分辨率和放大方法的描述，哪些是正确的？",
+          "options": [
+            "A. Fast Latent Upscale Adapter在潜在空间进行放大",
+            "B. LSRNA在潜在空间进行超分辨率",
+            "C. PixelRush是无需调优的方法",
+            "D. Latent Wavelet Diffusion在小波域进行扩散"
+          ],
+          "answer": ["A", "B", "C", "D"],
+          "explanation": "这四种方法分别从潜在空间放大、潜在空间超分辨率、无需调优和小波域扩散等不同角度解决高分辨率生成问题。参考：Razin et al., 2024; Jeong et al., 2024; Lai et al., 2024; Sigillo et al., ICLR 2026"
+        },
+        {
+          "id": 57,
+          "difficulty": "medium",
+          "direction": "3D重建",
+          "question": "以下关于主动3D重建方法的描述，哪些是正确的？",
+          "options": [
+            "A. GS-Planner基于Gaussian Splatting进行规划",
+            "B. ActiveGAMER通过高效渲染实现主动映射",
+            "C. Auto3R通过不确定性量化实现自动化",
+            "D. ExploreGS使用激光雷达数据"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "GS-Planner、ActiveGAMER和Auto3R分别从不同角度改进主动3D重建。ExploreGS是基于视觉的方法，不使用激光雷达。参考：Jin et al., 2024; Chen et al., 2025; Shen et al., 2025"
+        },
+        {
+          "id": 58,
+          "difficulty": "hard",
+          "direction": "数字人",
+          "question": "以下关于音频驱动头像和多模态数字人技术的描述，哪些是正确的？",
+          "options": [
+            "A. AvatarSync通过音素引导自回归实现说话头动画",
+            "B. AV-Edit通过音视频语义联合控制进行音效编辑",
+            "C. SONOWORLD从单张图像生成3D音视频场景",
+            "D. 所有方法都仅生成2D视频"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "AvatarSync、AV-Edit和SONOWORLD分别从不同角度推进数字人技术，SONOWORLD生成的是3D音视频场景而非仅2D视频。参考：Deng et al., 2025; Guo et al., 2025; Jin et al., 2026"
+        },
+        {
+          "id": 59,
+          "difficulty": "medium",
+          "direction": "多模态学习",
+          "question": "以下关于多模态学习方法的描述，哪些是正确的？",
+          "options": [
+            "A. GEA通过生成增强对齐改善人物检索",
+            "B. 需要重新思考多模态LLM中的视觉信息处理",
+            "C. Next-Frame Feature Prediction用于深度伪造检测",
+            "D. Facial-R1对齐推理和识别进行情感分析"
+          ],
+          "answer": ["A", "B", "C", "D"],
+          "explanation": "GEA、多模态LLM视觉处理反思、深度伪造检测和Facial-R1分别从不同角度推进多模态学习。参考：Zou et al., 2025; Kim et al., 2025; Anshul et al., 2025; Wu et al., 2025"
+        },
+        {
+          "id": 60,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "以下关于扩散模型改进方向的描述，哪些是正确的？",
+          "options": [
+            "A. ORION通过解耦和对齐改善表示",
+            "B. 谱各向异性噪声引导关注重要特征",
+            "C. 生成器-分词器一致性正则化改善视觉AR模型",
+            "D. 频谱减弱引导视觉自回归模型"
+          ],
+          "answer": ["A", "B", "C", "D"],
+          "explanation": "ORION、谱各向异性噪声、REAR和频谱减弱分别从不同角度改进扩散模型和视觉生成模型。参考：2025; Scimeca et al., 2025; He et al., 2025; Wang et al., 2025"
+        },
+        {
+          "id": 61,
+          "difficulty": "medium",
+          "direction": "图像恢复",
+          "question": "以下关于图像恢复方法的描述，哪些是正确的？",
+          "options": [
+            "A. FRBNet从频域角度处理低光视觉",
+            "B. 语义一致的无监督微调建立通用桥接",
+            "C. Conditional Bernoulli Diffusion用于薄结构分割",
+            "D. Cluster-Centric范式用于UHD恢复"
+          ],
+          "answer": ["A", "B", "C", "D"],
+          "explanation": "FRBNet、通用桥接、Conditional Bernoulli Diffusion和Cluster-Centric范式分别从不同角度解决图像恢复问题。参考：Sun et al., 2025; Wang et al., 2025; An et al., 2025; Wu et al., 2026"
+        },
+        {
+          "id": 62,
+          "difficulty": "hard",
+          "direction": "视觉表示学习",
+          "question": "以下关于视觉表示学习在分割中应用的描述，哪些是正确的？",
+          "options": [
+            "A. SEGDINO利用DINO特征进行医学图像分割",
+            "B. Talking to DINO探索DINO特征的对话式应用",
+            "C. 隐藏正样本可用于无监督语义分割",
+            "D. DINO特征仅适用于分类任务"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "SEGDINO、Talking to DINO和隐藏正样本方法都利用了DINO等自监督视觉特征在分割中的应用。DINO特征不仅适用于分类，也广泛用于分割等密集预测任务。参考：2025; 2025; 2024"
+        },
+        {
+          "id": 63,
+          "difficulty": "medium",
+          "direction": "测试时适应",
+          "question": "以下关于测试时适应方法的描述，哪些是正确的？",
+          "options": [
+            "A. COLA使用上下文感知语言驱动适应",
+            "B. Token Expand-Merge是训练无关的token压缩",
+            "C. Self-evolved Imitation Learning在模拟世界中自我进化",
+            "D. 压缩域运动向量用于视频质量评估"
+          ],
+          "answer": ["A", "B", "C", "D"],
+          "explanation": "COLA、Token Expand-Merge、Self-evolved Imitation Learning和压缩域运动向量分别从不同角度推进测试时适应和评估。参考：Zhang et al., 2024; Ye et al., 2025; Ye et al., 2025; Cakiroglu, 2025"
+        },
+        {
+          "id": 64,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "以下关于将扩散过程视为自蒸馏(End-to-End Latent Diffusion)的描述，哪些是正确的？",
+          "options": [
+            "A. 将扩散过程视为自蒸馏",
+            "B. 消除了标准LDM的三部分分离架构",
+            "C. 实现端到端训练",
+            "D. 需要更多的训练阶段"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "Diffusion As Self-Distillation将扩散视为自蒸馏，消除三部分分离架构，实现端到端训练，减少了训练阶段而非增加。参考：《Diffusion As Self-Distillation》，Wang & Zhang, 2025"
+        },
+        {
+          "id": 65,
+          "difficulty": "medium",
+          "direction": "扩散模型架构",
+          "question": "以下关于Trainable Log-linear Sparse Attention的描述，哪些是正确的？",
+          "options": [
+            "A. 通过压缩步骤减少计算量",
+            "B. 使用Top-K选择机制",
+            "C. 采用块稀疏注意力",
+            "D. 仅适用于自然语言处理"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "Trainable Log-linear Sparse Attention包含压缩、Top-K选择和块稀疏注意力三个步骤，适用于扩散Transformer而非仅NLP。参考：《Trainable Log-linear Sparse Attention for Efficient Diffusion Transformers》，Zhou et al., 2025"
+        },
+        {
+          "id": 66,
+          "difficulty": "hard",
+          "direction": "GUI Agent",
+          "question": "以下关于TongUI的描述，哪些是正确的？",
+          "options": [
+            "A. 从网络教程中学习GUI操作",
+            "B. 构建了GUI-Net-1M数据集",
+            "C. 跨越5个操作系统和280多个应用",
+            "D. 使用GPT-4V作为基础模型"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "TongUI从网络教程学习、构建GUI-Net-1M数据集、跨越多平台，但使用Qwen2.5-VL而非GPT-4V作为基础模型。参考：《TongUI: Building Generalized GUI Agents by Learning from Multimodal Web Tutorials》，Zhang et al., 2025"
+        },
+        {
+          "id": 67,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "以下关于透明物体分割的描述，哪些是正确的？",
+          "options": [
+            "A. 利用边界先验信息",
+            "B. 利用反射先验信息",
+            "C. 使用金字塔视觉Transformer",
+            "D. 透明物体分割与不透明物体分割完全相同"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "透明物体分割利用边界和反射先验，使用带有透明线索的金字塔视觉Transformer。透明物体分割有独特的挑战，与不透明物体分割不同。参考：《Power of Boundary and Reflection》，Vu et al., 2025"
+        },
+        {
+          "id": 68,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "以下关于DYffusion的描述，哪些是正确的？",
+          "options": [
+            "A. 将动力学信息融入扩散模型",
+            "B. 用于时空预测任务",
+            "C. 解决了扩散模型在静态图像上的局限",
+            "D. 仅使用标准高斯噪声"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "DYffusion将动力学信息融入扩散模型用于时空预测，解决了扩散模型主要设计用于静态图像的局限。参考：《DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting》，Rühling Cachay et al., 2023"
+        },
+        {
+          "id": 69,
+          "difficulty": "medium",
+          "direction": "扩散模型应用",
+          "question": "以下关于扩散模型在非视觉领域应用的描述，哪些是正确的？",
+          "options": [
+            "A. 可用于点击率预测",
+            "B. 可用于时间序列预测",
+            "C. 可用于强化学习中的规划",
+            "D. 扩散模型仅适用于视觉任务"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "扩散模型已应用于CTR预测、时间序列预测和强化学习规划等非视觉领域。参考：Zhu et al., 2025; Rishi et al., 2025; Wang et al., 2023"
+        },
+        {
+          "id": 70,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "以下关于Blind Super-Resolution的描述，哪些是正确的？",
+          "options": [
+            "A. 面临未知退化的挑战",
+            "B. 扩散模型为该领域带来突破",
+            "C. 潜空间方法降低了计算负担",
+            "D. 盲超分辨率与已知退化的超分辨率完全相同"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "盲超分辨率面临未知退化挑战，扩散模型带来突破，潜空间方法降低计算负担。盲超分辨率与已知退化超分辨率有本质区别。参考：《Blind Image Super-Resolution: A Survey and Beyond》，Liu et al., 2024"
+        },
+        {
+          "id": 71,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "以下关于自监督多分辨率语义分割(SEMPART)的描述，哪些是正确的？",
+          "options": [
+            "A. 自监督方法无需标注",
+            "B. 提供多分辨率分割",
+            "C. 可替代传统显著性检测",
+            "D. 需要大量标注数据"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "SEMPART是自监督多分辨率方法，无需标注数据，提供多分辨率语义分割。参考：《SEMPART: Self-supervised Multi-resolution Partitioning of Image Semantics》，Ravindran et al., 2025"
+        },
+        {
+          "id": 72,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "以下关于表示量化自编码器(VQRAE)在多模态任务中的应用，哪些描述是正确的？",
+          "options": [
+            "A. 使用矢量量化进行表示离散化",
+            "B. 统一理解和生成任务",
+            "C. 支持多模态",
+            "D. 仅用于图像生成"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "VQRAE使用矢量量化，统一多模态理解和生成，不仅限于图像生成。参考：《VQRAE: Representation Quantization Autoencoders》，Du et al., 2025"
+        },
+        {
+          "id": 73,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "以下关于消除高CFG过饱和问题的描述，哪些是正确的？",
+          "options": [
+            "A. 高CFG会导致过饱和",
+            "B. 高CFG会导致伪影",
+            "C. 该问题已被完全解决",
+            "D. 高CFG总是导致质量下降"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "高CFG导致过饱和和伪影，已有方法可以消除这一问题。高CFG并非总是导致质量下降，适度CFG是有益的。参考：《Eliminating Oversaturation and Artifacts of High Guidance Scales》，Sadat et al., ICLR 2025"
+        },
+        {
+          "id": 74,
+          "difficulty": "hard",
+          "direction": "视觉自回归模型",
+          "question": "以下关于视觉自回归模型改进的描述，哪些是正确的？",
+          "options": [
+            "A. REAR通过一致性正则化改善生成器-分词器一致性",
+            "B. 频谱减弱可以引导生成",
+            "C. 视觉AR模型无法生成高质量图像",
+            "D. 视觉AR模型是扩散模型的有力竞争者"
+          ],
+          "answer": ["A", "B", "D"],
+          "explanation": "REAR和频谱减弱改进视觉AR模型，视觉AR模型已能生成高质量图像，是扩散模型的有力竞争者。参考：He et al., 2025; Wang et al., 2025"
+        },
+        {
+          "id": 75,
+          "difficulty": "medium",
+          "direction": "世界模型",
+          "question": "以下关于世界模型的描述，哪些是正确的？",
+          "options": [
+            "A. DINO-WM利用预训练视觉特征实现零样本规划",
+            "B. WorldMem通过记忆机制实现长期一致性",
+            "C. 世界模型仅用于游戏",
+            "D. Representation Alignment有助于世界模型训练"
+          ],
+          "answer": ["A", "B", "D"],
+          "explanation": "DINO-WM、WorldMem和Representation Alignment分别推进世界模型研究。世界模型不仅用于游戏，还用于机器人规划等。参考：Zhou et al., 2024; Xiao et al., 2025; Yu et al., ICLR 2025"
+        },
+        {
+          "id": 76,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "以下关于REPA-E的描述，哪些是正确的？",
+          "options": [
+            "A. 解锁VAE用于端到端调优",
+            "B. 引入对齐损失",
+            "C. 需要分阶段训练",
+            "D. 实现潜在扩散Transformer的端到端训练"
+          ],
+          "answer": ["A", "B", "D"],
+          "explanation": "REPA-E解锁VAE端到端调优，引入对齐损失，实现端到端训练而非分阶段训练。参考：《REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers》，Leng et al., 2025"
+        },
+        {
+          "id": 77,
+          "difficulty": "medium",
+          "direction": "全景图像生成",
+          "question": "以下关于PAR模型的描述，哪些是正确的？",
+          "options": [
+            "A. 使用掩码自回归建模",
+            "B. 避免i.i.d.高斯噪声假设",
+            "C. 统一文本和图像条件",
+            "D. 使用扩散模型"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "PAR使用掩码自回归建模而非扩散模型，避免i.i.d.假设，统一文本和图像条件。参考：《Conditional Panoramic Image Generation via Masked Autoregressive Modeling》，Wang et al., 2025"
+        },
+        {
+          "id": 78,
+          "difficulty": "hard",
+          "direction": "显著性检测",
+          "question": "以下关于RGB-T显著性检测中模态对齐问题的描述，哪些是正确的？",
+          "options": [
+            "A. TPS-Driven方法打破对齐壁垒",
+            "B. HyPSAM通过混合提示适配SAM",
+            "C. TwinsTNet探索模态间互补信息",
+            "D. RGB-T检测不需要考虑模态对齐"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "TPS-Driven、HyPSAM和TwinsTNet都从不同角度处理RGB-T检测中的模态对齐问题。模态对齐是RGB-T检测的关键挑战。参考：Hu et al., 2025; Hou et al., 2026; Lyu et al., 2025"
+        },
+        {
+          "id": 79,
+          "difficulty": "medium",
+          "direction": "扩散模型理论",
+          "question": "以下关于Cold Diffusion on Replay Buffer的描述，哪些是正确的？",
+          "options": [
+            "A. 应用于强化学习",
+            "B. 从已知良好状态学习规划",
+            "C. 使用标准扩散过程",
+            "D. 利用回放缓冲区"
+          ],
+          "answer": ["A", "B", "D"],
+          "explanation": "Cold Diffusion on Replay Buffer应用于强化学习，从已知良好状态学习规划，利用回放缓冲区，使用冷扩散而非标准扩散。参考：《Cold Diffusion on the Replay Buffer》，Wang et al., 2023"
+        },
+        {
+          "id": 80,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "以下关于InfGen的描述，哪些是正确的？",
+          "options": [
+            "A. 是分辨率无关的生成范式",
+            "B. 用一步生成器替代VAE解码器",
+            "C. 将固定潜在表示作为内容表示",
+            "D. 需要为每种分辨率训练独立模型"
+          ],
+          "answer": ["A", "B", "C"],
+          "explanation": "InfGen是分辨率无关的，用一步生成器替代VAE解码器，使用固定潜在表示，不需要为每种分辨率训练独立模型。参考：《InfGen: A Resolution-Agnostic Paradigm for Scalable Image Synthesis》，Han et al., 2024"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "title": "判断题（20题×0.5分）",
+      "score_per_question": 0.5,
+      "questions": [
+        {
+          "id": 81,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "PixelDiT在潜在空间进行扩散以减少计算成本。",
+          "answer": false,
+          "explanation": "PixelDiT在像素空间直接进行扩散，其动机正是避免潜在空间中预训练自编码器带来的有损重建。参考：《PixelDiT: Pixel Diffusion Transformers for Image Generation》，Yu et al., 2025"
+        },
+        {
+          "id": 82,
+          "difficulty": "medium",
+          "direction": "视频生成",
+          "question": "Video Diffusion Models作为训练无关的运动控制器需要额外的微调。",
+          "answer": false,
+          "explanation": "该方法的核心优势是training-free，直接利用视频扩散模型的中间特征进行运动解释和控制，无需额外训练。参考：《Video Diffusion Models are Training-free Motion Interpreter and Controller》，Xiao et al., NeurIPS 2024"
+        },
+        {
+          "id": 83,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "TPS-Driven方法实现了无需显式对齐的RGB-T显著性检测。",
+          "answer": true,
+          "explanation": "TPS-Driven通过薄板样条驱动的语义关联学习打破了对齐壁垒，实现无需显式对齐的RGB-T显著性检测。参考：《Breaking Alignment Barriers: TPS-Driven Semantic Correlation Learning》，Hu et al., 2025"
+        },
+        {
+          "id": 84,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "Cold Diffusion仅适用于图像领域的生成任务。",
+          "answer": false,
+          "explanation": "Cold Diffusion已扩展到语音增强、MRI重建、强化学习规划等多个非图像领域。参考：Yen et al., 2024; Shen et al., 2024; Wang et al., 2023"
+        },
+        {
+          "id": 85,
+          "difficulty": "medium",
+          "direction": "数字人",
+          "question": "SONOWORLD是首个从单张图像生成3D音视频场景的框架。",
+          "answer": true,
+          "explanation": "SONOWORLD提出IMAGE2AVSCENE任务，是首个从单张图像生成包含声音的3D音视频场景的框架。参考：《SONOWORLD: From One Image to a 3D Audio-Visual Scene》，Jin et al., 2026"
+        },
+        {
+          "id": 86,
+          "difficulty": "hard",
+          "direction": "时间序列预测",
+          "question": "DC-Mamber仅使用Mamba架构进行时间序列预测。",
+          "answer": false,
+          "explanation": "DC-Mamber是双通道模型，结合了Mamba和线性Transformer两种架构进行多变量时间序列预测。参考：《DC-Mamber: A Dual Channel Prediction Model based on Mamba and Linear Transformer》，Fan et al., 2025"
+        },
+        {
+          "id": 87,
+          "difficulty": "medium",
+          "direction": "测试时适应",
+          "question": "COLA方法可以适应多个目标域而不需要共享标签。",
+          "answer": true,
+          "explanation": "COLA使用预训练VLM通过类别描述匹配识别图像，可以在无共享标签的情况下适应多个目标域。参考：《COLA: Context-aware Language-driven Test-time Adaptation》，Zhang et al., 2024"
+        },
+        {
+          "id": 88,
+          "difficulty": "hard",
+          "direction": "扩散模型架构",
+          "question": "Diffusion As Self-Distillation保留了标准LDM的分离式三部分架构。",
+          "answer": false,
+          "explanation": "Diffusion As Self-Distillation的核心贡献是将分离的编码器、解码器和扩散网络合并为单一端到端模型，消除了三部分分离架构。参考：《Diffusion As Self-Distillation》，Wang & Zhang, 2025"
+        },
+        {
+          "id": 89,
+          "difficulty": "medium",
+          "direction": "GUI Agent",
+          "question": "TongUI使用Qwen2.5-VL作为基础模型进行微调。",
+          "answer": true,
+          "explanation": "TongUI通过在GUI-Net-1M上微调Qwen2.5-VL-3B/7B模型来开发GUI Agent。参考：《TongUI: Building Generalized GUI Agents by Learning from Multimodal Web Tutorials》，Zhang et al., 2025"
+        },
+        {
+          "id": 90,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "DYffusion仅适用于静态图像生成任务。",
+          "answer": false,
+          "explanation": "DYffusion专门设计用于时空预测任务，将动力学信息融入扩散模型，解决扩散模型主要设计用于静态图像的局限。参考：《DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting》，Rühling Cachay et al., 2023"
+        },
+        {
+          "id": 91,
+          "difficulty": "medium",
+          "direction": "图像恢复",
+          "question": "FRBNet从频域角度处理低光视觉问题。",
+          "answer": true,
+          "explanation": "FRBNet提出频域径向基网络，从频域角度重新审视和处理低光视觉问题。参考：《FRBNet: Revisiting Low-Light Vision through Frequency-Domain Radial Basis Network》，Sun et al., 2025"
+        },
+        {
+          "id": 92,
+          "difficulty": "hard",
+          "direction": "3D重建",
+          "question": "Auto3R需要人工决定何时重建质量足够。",
+          "answer": false,
+          "explanation": "Auto3R通过数据驱动的不确定性量化实现自动化，系统能够自主决定何时重建质量足够，无需人工干预。参考：《Auto3R: Automated 3D Reconstruction and Scanning via Data-driven Uncertainty Quantification》，Shen et al., 2025"
+        },
+        {
+          "id": 93,
+          "difficulty": "medium",
+          "direction": "扩散模型架构",
+          "question": "MMDiT在多主体生成中不会出现主体忽略或混合问题。",
+          "answer": false,
+          "explanation": "研究发现MMDiT在输入文本包含多个主体时仍会出现主体忽略或混合问题。参考：《Enhancing MMDiT-Based Text-to-Image Models for Similar Subject Generation》，Wei et al., 2025"
+        },
+        {
+          "id": 94,
+          "difficulty": "hard",
+          "direction": "视觉自回归模型",
+          "question": "REAR通过生成器-分词器一致性正则化来改善视觉自回归模型。",
+          "answer": true,
+          "explanation": "REAR提出Generator-Tokenizer Consistency Regularization来解决视觉自回归模型中生成器和分词器之间的不一致问题。参考：《REAR: Rethinking Visual Autoregressive Models via Generator-Tokenizer Consistency Regularization》，He et al., 2025"
+        },
+        {
+          "id": 95,
+          "difficulty": "medium",
+          "direction": "扩散模型应用",
+          "question": "Cold Diffusion可用于K空间MRI重建。",
+          "answer": true,
+          "explanation": "已有研究在K空间中直接使用冷扩散进行加速MRI重建，无需添加噪声。参考：《Learning to Reconstruct Accelerated MRI through K-space Cold Diffusion without Noise》，Shen et al., 2024"
+        },
+        {
+          "id": 96,
+          "difficulty": "hard",
+          "direction": "多模态学习",
+          "question": "Facial-R1仅进行面部情感分类。",
+          "answer": false,
+          "explanation": "Facial-R1将面部情感分析扩展为包含情感分类、情感解释和情感原因三个子任务的综合分析，不仅进行分类。参考：《Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis》，Wu et al., 2025"
+        },
+        {
+          "id": 97,
+          "difficulty": "medium",
+          "direction": "显著性检测",
+          "question": "SEGDINO利用DINO特征实现高效的医学图像分割。",
+          "answer": true,
+          "explanation": "SEGDINO提出一种高效设计，利用DINO自监督视觉特征进行医学图像分割。参考：《SEGDINO: An Efficient Design for Medical Image Segmentation》，2025"
+        },
+        {
+          "id": 98,
+          "difficulty": "hard",
+          "direction": "扩散模型理论",
+          "question": "谱各向异性前向噪声使用各向同性的噪声分布。",
+          "answer": false,
+          "explanation": "谱各向异性(Spectrally Anisotropic)前向噪声的核心就是使用各向异性而非各向同性的噪声分布来引导扩散过程。参考：《Learning What Matters: Steering Diffusion via Spectrally Anisotropic Forward Noise》，Scimeca et al., 2025"
+        },
+        {
+          "id": 99,
+          "difficulty": "medium",
+          "direction": "扩散模型架构",
+          "question": "Fast Latent Upscale Adapter在解码之后进行超分辨率操作。",
+          "answer": false,
+          "explanation": "Fast Latent Upscale Adapter在潜在空间(解码之前)进行放大适配，避免了后处理超分辨率在解码后操作引入的伪影和延迟。参考：《Fast Latent Upscale Adapter for Your Diffusion Models》，Razin et al., 2024"
+        },
+        {
+          "id": 100,
+          "difficulty": "hard",
+          "direction": "世界模型",
+          "question": "DINO-WM需要任务特定的训练数据来实现零样本规划。",
+          "answer": false,
+          "explanation": "DINO-WM利用预训练视觉特征构建世界模型，实现零样本规划，不需要任务特定的训练数据。参考：《DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning》，Zhou et al., 2024"
+        }
+      ]
+    }
+  ]
+}
